@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  admission_name: MyString
+  how_to_apply: MyText
+  required_document: MyText
+  payment_process: MyText
+  useful_information: MyText
+
+two:
+  admission_name: MyString
+  how_to_apply: MyText
+  required_document: MyText
+  payment_process: MyText
+  useful_information: MyText

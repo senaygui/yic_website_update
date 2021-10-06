@@ -1,0 +1,2 @@
+class MarketingSection < ApplicationRecord
+end

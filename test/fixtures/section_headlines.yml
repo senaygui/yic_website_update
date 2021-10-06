@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  gallery_headline: MyString
+  service_headline: MyString
+  accreditation: MyString
+  testimonial_headline: MyString
+  home_page: 
+  home_page_carousel_headline: MyString
+  home_page_carousel_description: MyString
+
+two:
+  gallery_headline: MyString
+  service_headline: MyString
+  accreditation: MyString
+  testimonial_headline: MyString
+  home_page: 
+  home_page_carousel_headline: MyString
+  home_page_carousel_description: MyString

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fullname: MyString
+  sex: MyString
+  phone_number: MyString
+  modality: MyString
+  study_level: MyString
+  graduation_date: 2021-10-06 03:03:30
+  prorgam: one
+
+two:
+  fullname: MyString
+  sex: MyString
+  phone_number: MyString
+  modality: MyString
+  study_level: MyString
+  graduation_date: 2021-10-06 03:03:30
+  prorgam: two
