@@ -88,6 +88,6 @@ test:
 #
 production:
   <<: *default
-  database: yic_website_production
-  username: yic_website
-  password: <%= ENV['YIC_WEBSITE_DATABASE_PASSWORD'] %>
+  database: <%= Rails.application.credentials.production[:database] %>
+  username: <%= Rails.application.credentials.production[:username] %>
+  password: <%= Rails.application.credentials.production[:password] %>
