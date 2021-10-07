@@ -40,6 +40,11 @@ gem 'image_processing'
 gem 'active_storage_validations', '~> 0.9.5'
 gem 'bootstrap', '~> 4.6'
 gem 'simple_form', '~> 5.0', '>= 5.0.2'
+gem "rqrcode", "~> 2.1"
+
+gem "chunky_png", "~> 1.4"
+
+gem "barby", "~> 0.6.8"
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

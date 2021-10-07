@@ -4,7 +4,7 @@ ActiveAdmin.register College do
   index do
     selectable_column
     column :college_name
-    column :headquarter
+    column :headquarter_address
     column :created_by
     column :last_updated_by
     column "Created At", sortable: true do |c|

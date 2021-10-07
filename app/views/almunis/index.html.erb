@@ -1,0 +1,70 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+  <main id="main">
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li>Almunis Directory</li>
+        </ol>
+        <h2>Almunis Directory</h2>
+
+      </div>
+    </section>
+    
+    <section id="recent-blog-posts" class="recent-blog-posts">
+
+      <div class="container aos-init aos-animate" data-aos="fade-up">
+
+        <header class="section-header">
+          <!-- <h2>Programs</h2> -->
+          <div class="row">
+            <div class="col-md-6 offset-md-3">
+              <%= search_form_for(@search, html: { class: "input-group form-sm form-1 pl-0" }) do |f| %>
+                  
+                    
+                      <%= f.search_field :fullname_cont, class: "form-control my-0 py-1",placeholder: "Search by student fullname "   %>
+                      <div class="input-group-prepend bg-primary">
+                        <span class="input-group-text bg-primary text-white" id="basic-text1"><i class="icofont-search" aria-hidden="true"></i></span>
+                      </div>
+                    
+                    <!-- <input class="form-control my-0 py-1" type="text" placeholder="Search" aria-label="Search"> -->
+              <% end %>
+            </div>
+          </div> 
+        </header>
+
+        <div class="row">
+         <% @almunis.each do |almuni| %>
+          <div class="col-lg-3" style="padding-right: 5px;">
+            <div class="post-box">
+              <div class="post-img"><%= link_to image_tag(almuni.documents[0],size:"280x800", class: "img-fluid"), almuni.documents[0] %></div>
+              
+              <h3 class="post-title"><%= almuni.fullname%></h3>
+              <span class="post-date"><strong>Modality:- <%= almuni.modality%> </strong></span>
+              <span class="post-date"><strong>Study level:- <%= almuni.study_level%> </strong></span>
+              <span class="post-date"><strong>Program:- <%= almuni.program_name%> </strong></span>
+              <span class="post-date"><strong>Graduation Date:- <%= almuni.graduation_date.strftime("%b %d, %Y")%> </strong></span>
+            <%= image_tag(almuni.qr_code, size: "50x50") if almuni.qr_code.attached? %>
+            
+            </div>
+          </div>
+        <%end%>
+        </div>
+
+      </div>
+
+    </section>
+    
+    <!-- ======= Marketing Headline ======= -->
+    <section id="cta" class="cta">
+      <div class="container aos-init aos-animate " data-aos="zoom-in">
+        <div class="text-center">
+          <h3>Marketing Headline</h3>
+          <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <a class="cta-btn" href="#">Learn more</a>
+        </div>
+      </div>
+    </section> <!-- End Marketing -->
+    
+  </main>

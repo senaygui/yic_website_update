@@ -1,0 +1,132 @@
+  <main id="main">
+  	<section class="breadcrumbs">
+  		<div class="container">
+
+  			<ol>
+  				<li><a href="/">Home</a></li>
+  				<li><%= link_to @admission.admission_name, admission_path(@admission)%></li>
+
+  			</ol>
+  			<h2>Regular Masters</h2>
+
+  		</div>
+  	</section>
+  	<section id="departments" class="departments">
+  		<div class="container">
+
+  			<div class="section-title">
+  				<h2>Our <%= @admission.admission_name%> Program</h2>
+  				<p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit.</p>
+  			</div>
+
+  			<div class="row">
+  				<div class="col-lg-3">
+  					<ul class="nav nav-tabs flex-column">
+  						<li class="nav-item">
+  							<a class="nav-link active show" data-toggle="tab" href="#tab-12">How to Apply</a>
+  						</li>
+  						<li class="nav-item">
+  							<a class="nav-link" data-toggle="tab" href="#tab-22">Required Documents</a>
+  						</li>
+  						<li class="nav-item">
+  							<a class="nav-link" data-toggle="tab" href="#tab-32">Payment Process</a>
+  						</li>
+  						<li class="nav-item">
+  							<a class="nav-link" data-toggle="tab" href="#tab-42">Useful Informations</a>
+  						</li>
+              <!-- <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#tab-52">E-learning</a>
+              </li> -->
+            </ul>
+          </div>
+          <div class="col-lg-9 mt-4 mt-lg-0">
+          	<div class="tab-content">
+          		<div class="tab-pane active show" id="tab-12">
+          			<div class="row">
+          				<div class="col-lg-8 details order-2 order-lg-1">
+          					<h3>How to Apply</h3>
+          					<p><%= @admission.how_to_apply%></p>
+          				</div>
+          				<div class="col-lg-4 text-center order-1 order-lg-2">
+          					<img src="assets/img/departments-1.jpg" alt="" class="img-fluid">
+          				</div>
+          			</div>
+          		</div>
+          		<div class="tab-pane" id="tab-22">
+          			<div class="row">
+          				<div class="col-lg-8 details order-2 order-lg-1">
+          					<h3>Required Documents</h3>
+          					<p><%= @admission.required_document%></p>
+          				</div>
+          				<div class="col-lg-4 text-center order-1 order-lg-2">
+          					<img src="assets/img/departments-2.jpg" alt="" class="img-fluid">
+          				</div>
+          			</div>
+          		</div>
+          		<div class="tab-pane" id="tab-32">
+          			<div class="row">
+          				<div class="col-lg-8 details order-2 order-lg-1">
+          					<h3>Payment Process</h3>
+          					<p><%= @admission.payment_process%></p>
+          				</div>
+          				<div class="col-lg-4 text-center order-1 order-lg-2">
+          					<img src="assets/img/departments-3.jpg" alt="" class="img-fluid">
+          				</div>
+          			</div>
+          		</div>
+          		<div class="tab-pane" id="tab-42">
+          			<div class="row">
+          				<div class="col-lg-8 details order-2 order-lg-1">
+          					<h3>Useful Informations</h3>
+          					<p><%= @admission.useful_information%></p>
+          				</div>
+          				<div class="col-lg-4 text-center order-1 order-lg-2">
+          					<img src="assets/img/departments-4.jpg" alt="" class="img-fluid">
+          				</div>
+          			</div>
+          		</div>
+          	</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <section id="recent-blog-posts" class="recent-blog-posts">
+
+    	<div class="container aos-init aos-animate" >
+
+    		<header class="section-header mb-3" data-aos="zoom-in">
+    			<h2>Programs</h2>
+    			<p>Our <%= @admission.admission_name%> Program</p>
+    		</header>
+
+    		<div class="row">
+    			<%Program.where(study_level: @admission.study_level).where(modality: @admission.modality).each do |pro|%>
+	    			<div class="col-lg-3" style="padding-right: 5px;">
+	   					<div class="post-box bg-white">
+	   						<div class="post-img"><%= image_tag pro.photo, class: "img-fluid"%></div>
+
+	   						<h3 class="post-title"><%= pro.program_name%></h3>
+	   						<span class="post-date"><strong>modality:- <%= pro.modality%> </strong></span>
+	   						<span class="post-date mb-4"><%= pro.overview%> .</span>
+	   						<%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
+	   					</div>
+	   				</div>
+	    		<%end%>
+    		</div>
+
+    	</div>
+
+    </section>
+
+    <!-- ======= Marketing Headline ======= -->
+    <section id="cta" class="cta">
+    	<div class="container aos-init aos-animate " data-aos="zoom-in">
+    		<div class="text-center">
+    			<h3>Marketing Headline</h3>
+    			<p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    			<a class="cta-btn" href="#">Get Your Degree</a>
+    		</div>
+    	</div>
+    </section> <!-- End Marketing -->
+  </main>

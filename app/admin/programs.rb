@@ -1,6 +1,6 @@
 ActiveAdmin.register Program do
 
-  permit_params :program_name,:study_level,:modality,:overview,:program_description,:program_duration,:total_tuition,:monthly_tuition,:created_by,:last_updated_by
+  permit_params :program_name,:study_level,:modality,:overview,:program_description,:program_duration,:total_tuition,:monthly_tuition,:created_by,:last_updated_by, :photo
 
   index do
     selectable_column
@@ -42,6 +42,7 @@ ActiveAdmin.register Program do
       f.input :program_duration, as: :select, :collection => [1, 2,3,4,5,6,7], :include_blank => false
       f.input :monthly_tuition
       f.input :total_tuition
+      f.input :photo, as: :file
       if f.object.new_record?
         f.input :created_by, as: :hidden, :input_html => { :value => current_admin_user.name.full}
       else
@@ -66,6 +67,9 @@ ActiveAdmin.register Program do
         row :last_updated_by
         row :created_at
         row :updated_at
+        row "photo" do |pt|
+          span image_tag(pt.photo, size: '300x300', class: "img-corner")
+        end
       end
     end
 

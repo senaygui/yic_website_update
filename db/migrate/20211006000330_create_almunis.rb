@@ -7,7 +7,7 @@ class CreateAlmunis < ActiveRecord::Migration[5.2]
       t.string :modality
       t.string :study_level
       t.datetime :graduation_date
-      t.string :prorgam
+      t.string :program_name
       t.timestamps
     end
   end
