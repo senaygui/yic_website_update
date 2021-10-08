@@ -1,15 +1,15 @@
 ActiveAdmin.register Almuni do
   permit_params :fullname,:sex,:phone_number,:modality,:study_level,:graduation_date,:program_name, documents: []
-
+    active_admin_import
   index do
     selectable_column
     column :fullname
     column :modality
     column :study_level
     column :program_name
-    column "Graduation Date", sortable: true do |c|
-      c.graduation_date.strftime("%b %d, %Y")
-    end
+    # column "Graduation Date", sortable: true do |c|
+    #   c.graduation_date.strftime("%b %d, %Y")
+    # end
     column "Created At", sortable: true do |c|
       c.created_at.strftime("%b %d, %Y")
     end
@@ -22,7 +22,7 @@ ActiveAdmin.register Almuni do
       f.input :fullname
       f.input :modality, as: :select, :collection => ["online", "regular", "extention", "distance"]
       f.input :study_level, as: :select, :collection => ["undergraduate", "graduate"]
-      f.input :program_name, as: :select, :collection => Program.all.pluck(:program_name)
+      f.input :program_name
       f.input :sex, as: :select, :collection => ["Male", "Female"], :include_blank => false
       f.input :phone_number      
       f.input :graduation_date, as: :date_time_picker
@@ -76,7 +76,7 @@ ActiveAdmin.register Almuni do
         row :created_at
         row :updated_at
         row "QR code" do |pt|
-          span link_to(image_tag(pt.qr_code), pt.qr_code) if almuni.qr_code.attached?
+          span link_to(image_tag(pt.qr_code), rails_blob_path(pt.qr_code, disposition: 'attachment')) if almuni.qr_code.attached?
         end
         row "Bar code" do |pt|
           link_to(image_tag(pt.barcode), pt.barcode) if almuni.barcode.attached?
