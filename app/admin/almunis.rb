@@ -1,5 +1,11 @@
 ActiveAdmin.register Almuni do
+  config.batch_actions = true
+
   permit_params :fullname,:sex,:phone_number,:modality,:study_level,:graduation_date,:program_name, :photo, documents: []
+  scoped_collection_action :scoped_collection_update, form: -> do
+                                         { graduation_date: 'datepicker' 
+                                          }
+                                        end
   active_admin_import
   index do
     selectable_column
@@ -72,6 +78,15 @@ ActiveAdmin.register Almuni do
     @pic = ActiveStorage::Attachment.find(params[:id])
     @pic.purge_later
     redirect_back(fallback_location: edit_admin_almuni_path)
+  end
+
+  member_action :generate_tempo, method: :put do
+    @almuni= Almuni.find(params[:id])
+    @almuni.generate_qr
+    redirect_back(fallback_location: admin_almuni_path)
+  end
+  action_item :update, only: :show do
+    link_to 'generate tempo', generate_tempo_admin_almuni_path(almuni.id), method: :put, data: { confirm: 'Are you sure?' }        
   end
 
   show title: :fullname do
