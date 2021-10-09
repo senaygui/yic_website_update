@@ -1,11 +1,5 @@
 ActiveAdmin.register Almuni do
-  config.batch_actions = true
-
   permit_params :fullname,:sex,:phone_number,:modality,:study_level,:graduation_date,:program_name, :photo, documents: []
-  scoped_collection_action :scoped_collection_update, form: -> do
-                                         { graduation_date: 'datepicker' 
-                                          }
-                                        end
   active_admin_import
   index do
     selectable_column
