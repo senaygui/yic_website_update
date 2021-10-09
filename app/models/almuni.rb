@@ -9,7 +9,7 @@ class Almuni < ApplicationRecord
 		has_one_attached :qr_code
 
     has_one_attached :barcode
-
+    has_one_attached :photo
 
   
   def generate_qr

@@ -1,6 +1,6 @@
 ActiveAdmin.register Almuni do
-  permit_params :fullname,:sex,:phone_number,:modality,:study_level,:graduation_date,:program_name, documents: []
-    active_admin_import
+  permit_params :fullname,:sex,:phone_number,:modality,:study_level,:graduation_date,:program_name, :photo, documents: []
+  active_admin_import
   index do
     selectable_column
     column :fullname
@@ -19,6 +19,18 @@ ActiveAdmin.register Almuni do
   form do |f|
     f.semantic_errors
     f.inputs "Almuni information" do
+      div class: "avatar-upload" do
+        div class: "avatar-edit" do
+          f.input :photo, as: :file, label: "Upload Photo"
+        end
+        div class: "avatar-preview" do
+          if f.object.photo.attached? 
+            image_tag(f.object.photo,resize: '100x100',class: "profile-user-img img-responsive img-circle", id: "imagePreview")
+          else
+            image_tag("blank-profile-picture-973460_640.png",class: "profile-user-img img-responsive img-circle", id: "imagePreview")
+          end
+        end
+      end
       f.input :fullname
       f.input :modality, as: :select, :collection => ["online", "regular", "extention", "distance"]
       f.input :study_level, as: :select, :collection => ["undergraduate", "graduate"]
@@ -39,15 +51,15 @@ ActiveAdmin.register Almuni do
         div class: "document-preview container" do
           f.object.documents.each do |document|
             if document.variable?
-                div class: "preview-card" do
-                  span image_tag(document, size: '200x200')
-                  span link_to 'delete', delete_document_admin_almuni_path(document.id), method: :delete, data: { confirm: 'Are you sure?' }
-                end
+              div class: "preview-card" do
+                span image_tag(document, size: '200x200')
+                span link_to 'delete', delete_document_admin_almuni_path(document.id), method: :delete, data: { confirm: 'Are you sure?' }
+              end
             elsif document.previewable?
-                div class: "preview-card" do
-                  span image_tag(document.preview(resize: '200x200'))
-                  span link_to 'delete', delete_document_admin_almuni_path(document.id), method: :delete, data: { confirm: 'Are you sure?' }
-                end
+              div class: "preview-card" do
+                span image_tag(document.preview(resize: '200x200'))
+                span link_to 'delete', delete_document_admin_almuni_path(document.id), method: :delete, data: { confirm: 'Are you sure?' }
+              end
             end
           end
         end
@@ -65,7 +77,11 @@ ActiveAdmin.register Almuni do
   show title: :fullname do
     panel "Almuni information" do
       attributes_table_for almuni do
-
+        row "photo" do |pt|
+          if pt.photo.present?
+            span image_tag(pt.photo, size: '150x150', class: "img-corner") if almuni.photo.attached?
+          end
+        end
         row :fullname
         row :modality
         row :study_level
@@ -97,8 +113,11 @@ ActiveAdmin.register Almuni do
             end
           end
         end
+
+
       end
     end
+    render 'admin/print', context: self
   end
   
 end
