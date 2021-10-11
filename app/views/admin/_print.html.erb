@@ -10,11 +10,11 @@
 			div class: "program" do
 				almuni.program_name
 			end
-			# span class: "date" do
-			# 	if almuni.graduation_date.present?
-			# 		"On #{almuni.graduation_date.strftime("%B %d, %Y")}"
-			# 	end
-			# end
+			span class: "date" do
+				if almuni.graduation_date.present?
+					"On #{almuni.graduation_date.strftime("%B %d, %Y")}"
+				end
+			end
 			div class: "qrcode" do
 				image_tag(almuni.qr_code) if almuni.qr_code.attached?
 			end
