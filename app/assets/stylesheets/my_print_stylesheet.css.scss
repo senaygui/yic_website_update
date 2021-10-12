@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 body {
+	font-family: "Montserrat", sans-serif;
 	margin: 0;
 	color: #000;
 	background-color: #fff;
@@ -32,29 +33,27 @@ header, footer, aside, nav, form, iframe,table,.title_bar,.header,.page_title, .
 	position: absolute !important;
 	width: 94px !important;
 	height: 96px !important;
-	left: 80px !important;
+	left: 73px !important;
 	top: 259px !important;
 	/*background: url('photo_2019-09-28_22-41-16.jpg') !important;*/
 	background-position: center !important;
 	background-size: cover !important;
 }
 .fullname{
+	font-family: "Montserrat", sans-serif !important;
 	position: absolute !important;
-	width: 268px !important;
+	width: 360px !important;
 	height: 36px !important;
 	left: 198px !important;
-	top: 304px !important;
-
-	font-family: Roboto !important;
+	top: 310px !important;
 	font-style: normal !important;
 	font-weight: normal !important;
-	font-size: 24px !important;
-	line-height: 42px !important;
+	font-size: 20px !important;
+	line-height: 30px !important;
 	font-weight: bold !important;
 	display: flex !important;
 	align-items: center !important;
 	text-align: center !important;
-
 	color: #000000 !important;
 }
 .program{
@@ -64,7 +63,7 @@ header, footer, aside, nav, form, iframe,table,.title_bar,.header,.page_title, .
 	left: 100px;
 	top: 429px;
 	margin-top: 10px;
-	font-family: Roboto;
+	// font-family: Roboto;
 	font-style: normal;
 	font-weight: bold;
 	font-size: 25px;
