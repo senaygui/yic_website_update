@@ -1,8 +1,10 @@
 //= require jquery
 //= require active_admin/base
 //= require activeadmin_addons/all
+//= require active_admin_scoped_collection_actions
 //= require activestorage
 //= require active_storage_drag_and_drop
+
 
 $(document).ready(function(){
 
