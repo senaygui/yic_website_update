@@ -1,5 +1,5 @@
 ActiveAdmin.register College do
-  permit_params :college_name,:background,:mission,:vision,:overview,:establishment_date,:student_enrolled,:distance_center,:number_of_prorgam,:mandate,:history,:headquarter_address,:alternative_address,:sub_city,:state,:region,:zone,:worda,:city,:country,:phone_number,:alternative_phone_number,:email,:facebook_handle,:twitter_handle,:instagram_handle,:linkedin_handle,:map_embed,:created_by,:last_updated_by
+  permit_params :college_name,:background,:mission,:vision,:overview,:establishment_date,:student_enrolled,:distance_center,:number_of_prorgam,:mandate,:history,:headquarter_address,:alternative_address,:sub_city,:state,:region,:zone,:worda,:city,:country,:phone_number,:alternative_phone_number,:email,:facebook_handle,:twitter_handle,:instagram_handle,:linkedin_handle,:map_embed,:created_by,:last_updated_by, section_headline_attributes: [:id,:gallery_headline,:service_headline,:accreditation,:testimonial_headline,:home_page_video_embed,:home_page_carousel_headline,:home_page_carousel_description,:primary_cta_action,:secondary_cta_action]
 
   index do
     selectable_column

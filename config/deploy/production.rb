@@ -1,6 +1,6 @@
-role :app, %w{deploy@134.122.74.58}
-role :web, %w{deploy@134.122.74.58}
-role :db, %w{deploy@134.122.74.58}, :primary => true
+role :app, %w{deploy@165.232.70.109}
+role :web, %w{deploy@165.232.70.109}
+role :db, %w{deploy@165.232.70.109}, :primary => true
 set :branch, "master"
 set :rails_env, "production"
 set :deploy_to, '/home/deploy/yic_website'

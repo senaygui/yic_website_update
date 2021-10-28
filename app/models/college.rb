@@ -16,4 +16,5 @@ class College < ApplicationRecord
 		validates :email, :presence => true
   ##associations
   has_one :section_headline, dependent: :destroy
+  accepts_nested_attributes_for :section_headline
 end
