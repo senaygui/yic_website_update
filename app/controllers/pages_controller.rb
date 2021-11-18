@@ -1,5 +1,10 @@
 class PagesController < ApplicationController
   def home
+    @college = College.last
+    @comment = VisitorComment.all
+    @marketing = MarketingSection.all
+    @news = News.all
+    @programs = Program.all
   end
 
   def contact
@@ -7,9 +12,16 @@ class PagesController < ApplicationController
 
   def about
   	@college = College.last
+    @staff = Staff.all
+    @service = Service.all
+    @accreditations = Accreditation.all
+    @comment = VisitorComment.all
+    @marketing = MarketingSection.all
+    @news = News.all
   end
 
   def accreditation
   	@accreditations = Accreditation.all
+    @marketing = MarketingSection.all
   end
 end

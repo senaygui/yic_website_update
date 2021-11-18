@@ -4,10 +4,12 @@ class AdmissionsController < ApplicationController
   # GET /admissions or /admissions.json
   def index
     @admissions = Admission.all
+    @marketing = MarketingSection.all
   end
 
   # GET /admissions/1 or /admissions/1.json
   def show
+    @marketing = MarketingSection.all
   end
 
   # GET /admissions/new

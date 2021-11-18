@@ -1,25 +1,90 @@
 <p id="notice"><%= notice %></p>
 
-<h1>News</h1>
+    <section class="breadcrumbs">
+      <div class="container">
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li>News & Events</li>
+        </ol>
+        <h2>News & Events</h2>
 
-  <tbody>
-    <% @news.each do |news| %>
-      <tr>
-        <td><%= link_to 'Show', news %></td>
-        <td><%= link_to 'Edit', edit_news_path(news) %></td>
-        <td><%= link_to 'Destroy', news, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      </div>
+    </section><!-- End Breadcrumbs -->
 
-<br>
+    <section id="blog" class="blog">
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+          <div class="col-lg-8 entries">
+          <% @news.each do |n|%>
+            <article class="entry">
+              <h2 class="entry-title">
+                <div style= "color :#0975b8"><%= n.overview.html_safe%></div>
+              </h2>
+			        <br>
+			        <div class="entry-img">
+                <img src="assets/img/blog/blog-1.jpg" alt="" class="img-fluid">
+              </div>
+              <div class="entry-meta">
+                <ul>
+                  <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="blog-single.html"><%= n.published_by%></a></li>
+                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01"><%= n.created_at%></time></a></li>               
+                </ul>
+              </div>
+              <div class="entry-content">
+                <p><%= n.body.html_safe%></p>  
+              </div>
+            </article>
+          <% end %>
+            <div class="blog-pagination">
+              <ul class="justify-content-center">
+                <li class="disabled"><i class="icofont-rounded-left"></i></li>
+                <li><a href="#">1</a></li>
+                <li class="active"><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#"><i class="icofont-rounded-right"></i></a></li>
+              </ul>
+            </div>
+          </div>
 
-<%= link_to 'New News', new_news_path %>
+          <div class="col-lg-4">
+            <div class="sidebar">
+              <h3 class="sidebar-title">Recent Events</h3>
+              <div class="sidebar-item recent-posts">
+                <div class="post-item clearfix">
+                  <h4><a href="#" style="pointer-events: none">Nihil blanditiis at in nihil autem. Nihil blanditiis at in nihil autem. Nihil blanditiis at in nihil autem .Nihil blanditiis at in nihil autem</a></h4>
+                  <time datetime="2020-01-01">Jan 1, 2020</time>
+                </div>
+
+                <div class="post-item clearfix">
+                  <h4><a href="#" style="pointer-events: none">Nihil blanditiis at in nihil autem. Nihil blanditiis at in nihil autem. Nihil blanditiis at in nihil autem .Nihil blanditiis at in nihil autem</a></h4>
+                  <time datetime="2020-01-01">Jan 1, 2020</time>
+                </div>
+
+                <div class="post-item clearfix">
+                  <h4><a href="#" style="pointer-events: none">Nihil blanditiis at in nihil autem. Nihil blanditiis at in nihil autem. Nihil blanditiis at in nihil autem .Nihil blanditiis at in nihil autem</a></h4>
+                  <time datetime="2020-01-01">Jan 1, 2020</time>
+                </div>
+
+                <div class="post-item clearfix">
+                   <h4><a href="#" style="pointer-events: none">Nihil blanditiis at in nihil autem. Nihil blanditiis at in nihil autem. Nihil blanditiis at in nihil autem .Nihil blanditiis at in nihil autem</a></h4>
+                  <time datetime="2020-01-01">Jan 1, 2020</time>
+                </div>
+
+                <div class="post-item clearfix">
+                   <h4><a href="#" style="pointer-events: none">Nihil blanditiis at in nihil autem. Nihil blanditiis at in nihil autem. Nihil blanditiis at in nihil autem .Nihil blanditiis at in nihil autem</a></h4>
+                  <time datetime="2020-01-01">Jan 1, 2020</time>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+    </section><
+

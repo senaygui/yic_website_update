@@ -26,7 +26,7 @@
   						<li data-filter=".online">Online Programs</li>
   						<li data-filter=".regular">Regular Programs</li>
   						<li data-filter=".distance">Distance Programs</li>
-  						<li data-filter=".extientions">Extientions Programs</li>
+  						<li data-filter=".extention">Extientions Programs</li>
   					</ul>
   				</div>
   			</div>
@@ -35,16 +35,20 @@
           <% @accreditations.each do |a|%>
     				<div class="col-lg-4 col-md-6 portfolio-item <%= a.modality%>">
     					<div class="portfolio-wrap">
-    						<%= image_tag a.accreditation_documents[0], class: "img-fluid"%>
-    						<div class="portfolio-info">
-    							<h4><%= a.accreditation_title%></h4>
-    							<p><%= a.modality%></p>
-    							<div class="portfolio-links">
-                    <%= link_to '<i class="bx bx-plus"></i>'.html_safe, a.accreditation_documents[0], {'data-gall': "portfolioGallery",class: "venobox", title: a.accreditation_title}%>
-    								<!-- <a href="assets/img/a1.jpg" data-gall="portfolioGallery" class="venobox" title="App 1"></a> -->
-    								<!-- <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a> -->
-    							</div>
-    						</div>
+							<% if a.accreditation_documents[0].blank? %>
+								<div class="portfolio-info">
+									<h4>Data Not Found</h4>
+								</div>
+							<% else %>
+								<%= image_tag a.accreditation_documents[0], class: "img-fluid"%>
+								<div class="portfolio-info">
+									<h4><%= a.accreditation_title%></h4>
+									<p><%= a.modality%></p>
+									<div class="portfolio-links">
+										<%= link_to '<i class="bx bx-plus"></i>'.html_safe, a.accreditation_documents[0], {'data-gall': "portfolioGallery",class: "venobox", title: a.accreditation_title}%>
+									</div>
+								</div>
+							<% end %>
     					</div>
     				</div>
           <%end%>
@@ -168,11 +172,13 @@
   	
   	<section id="cta" class="cta">
   		<div class="container aos-init aos-animate " data-aos="zoom-in">
-  			<div class="text-center">
-  				<h3>Marketing Headline</h3>
-  				<p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  				<a class="cta-btn" href="#">Learn more</a>
-  			</div>
+			<% @marketing.where(page_to_display: 'accreditation').each do |m|%>
+				<div class="text-center">
+					<h3><%= m.headline_title%></h3>
+					<p><%= m.description%></p>
+					<a class="cta-btn" href="<%= m.action%>">Learn more</a>
+				</div>
+			<% end %>
   		</div>
   	</section>
   	

@@ -1,4 +1,48 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_program_path(@program) %> |
-<%= link_to 'Back', programs_path %>
+ <main id="main">
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="program.html">Programs</a></li>
+		  <li><%= @programs.program_name %></li>
+        </ol>
+        <h2><%= @programs.program_name %></h2>
+
+      </div>
+    </section>
+	
+	<section>
+	<div class="container" data-aos="fade-up">
+		<div class="row">
+			  <div class="col-lg-1 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
+                
+              </div>
+              <div class="col-lg-5 order-1 order-lg-1 mt-3 mt-lg-0" data-aos="fade-up" data-aos-delay="100">
+                <h3><%= @programs.overview.html_safe %></h3>
+                <p>
+                  <%= @programs.program_description.html_safe %>
+                </p>
+              </div>
+              <div class="col-lg-5 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
+                <%= image_tag @programs.photo %>
+               </div>
+            </div>
+		</div>
+	</section>
+	
+	<!-- ======= Marketing Headline ======= -->
+	<section id="cta" class="cta">
+      <div class="container aos-init aos-animate " data-aos="zoom-in">
+            <% @marketing.where(page_to_display: 'programs').each do |m|%>
+				<div class="text-center">
+					<h3><%= m.headline_title%></h3>
+					<p><%= m.description%></p>
+					<a class="cta-btn" href="<%= m.action%>">Learn more</a>
+				</div>
+			<% end %>
+      </div>
+    </section> <!-- End Marketing -->
+	

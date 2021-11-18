@@ -35,8 +35,8 @@ ActiveAdmin.register Program do
     f.semantic_errors
     f.inputs "porgram information" do
       f.input :program_name
-      f.input :overview,  :input_html => { :class => 'autogrow', :rows => 10, :cols => 20}
-      f.input :program_description,  :input_html => { :class => 'autogrow', :rows => 10, :cols => 20}
+      f.input :overview,  :as => :ckeditor
+      f.input :program_description,  :as => :ckeditor
       f.input :study_level, as: :select, :collection => ["undergraduate", "graduate", "TPVT"], :include_blank => false
       f.input :modality, as: :select, :collection => ["online", "regular", "extention", "distance"], :include_blank => false
       f.input :program_duration, as: :select, :collection => [1, 2,3,4,5,6,7], :include_blank => false

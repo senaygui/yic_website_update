@@ -59,11 +59,13 @@
     <!-- ======= Marketing Headline ======= -->
     <section id="cta" class="cta">
       <div class="container aos-init aos-animate " data-aos="zoom-in">
-        <div class="text-center">
-          <h3>Marketing Headline</h3>
-          <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <a class="cta-btn" href="#">Learn more</a>
-        </div>
+        <% @marketing.where(page_to_display: 'almunis').each do |m|%>
+          <div class="text-center">
+            <h3><%= m.headline_title%></h3>
+            <p><%= m.description%></p>
+            <a class="cta-btn" href="<%= m.action%>">Learn more</a>
+          </div>
+        <% end %>
       </div>
     </section> <!-- End Marketing -->
     

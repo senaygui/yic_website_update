@@ -33,10 +33,10 @@ permit_params :admission_name,:how_to_apply,:required_document,:payment_process,
       f.semantic_errors
       f.inputs "Admission Information", :multipart => true do
         f.input :admission_name
-        f.input :how_to_apply
-        f.input :required_document
-        f.input :payment_process
-        f.input :useful_information
+        f.input :how_to_apply, :as => :ckeditor
+        f.input :required_document, :as => :ckeditor
+        f.input :payment_process, :as => :ckeditor
+        f.input :useful_information, :as => :ckeditor
         f.input :study_level, as: :select, :collection => ["undergraduate", "graduate"]
         f.input :modality, as: :select, :collection => ["online", "regular", "extention", "distance"]
       end

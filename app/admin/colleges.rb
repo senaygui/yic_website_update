@@ -23,12 +23,12 @@ ActiveAdmin.register College do
     f.semantic_errors
     f.inputs "College basic information" do
       f.input :college_name
-      f.input :overview,  :input_html => { :class => 'autogrow', :rows => 10, :cols => 20}
-      f.input :background,  :input_html => { :class => 'autogrow', :rows => 10, :cols => 20}
-      f.input :mission,  :input_html => { :class => 'autogrow', :rows => 10, :cols => 20}
-      f.input :vision,  :input_html => { :class => 'autogrow', :rows => 10, :cols => 20 } 
-      f.input :history,  :input_html => { :class => 'autogrow', :rows => 10, :cols => 20 } 
-      f.input :mandate,  :input_html => { :class => 'autogrow', :rows => 10, :cols => 20 }     
+      f.input :overview, :as => :ckeditor
+      f.input :background,  :as => :ckeditor
+      f.input :mission,  :as => :ckeditor
+      f.input :vision,  :as => :ckeditor
+      f.input :history, :as => :ckeditor
+      f.input :mandate, :as => :ckeditor   
       f.input :establishment_date, as: :date_time_picker
       f.input :student_enrolled
       f.input :distance_center
