@@ -5,6 +5,7 @@ class AlmunisController < ApplicationController
   def index
     @search = Almuni.search(params[:q])
     @almunis = @search.result.page(params[:page])
+    @marketing = MarketingSection.all
   end
 
   # GET /almunis/1 or /almunis/1.json

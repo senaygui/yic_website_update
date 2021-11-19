@@ -7,7 +7,7 @@
   				<li><%= link_to @admission.admission_name, admission_path(@admission)%></li>
 
   			</ol>
-  			<h2>Regular Masters</h2>
+  			<h2><%= @admission.admission_name%></h2>
 
   		</div>
   	</section>
@@ -45,7 +45,7 @@
           			<div class="row">
           				<div class="col-lg-8 details order-2 order-lg-1">
           					<h3>How to Apply</h3>
-          					<p><%= @admission.how_to_apply%></p>
+          					<p><%= @admission.how_to_apply.html_safe%></p>
           				</div>
           				<div class="col-lg-4 text-center order-1 order-lg-2">
           					<img src="assets/img/departments-1.jpg" alt="" class="img-fluid">
@@ -56,7 +56,7 @@
           			<div class="row">
           				<div class="col-lg-8 details order-2 order-lg-1">
           					<h3>Required Documents</h3>
-          					<p><%= @admission.required_document%></p>
+          					<p><%= @admission.required_document.html_safe%></p>
           				</div>
           				<div class="col-lg-4 text-center order-1 order-lg-2">
           					<img src="assets/img/departments-2.jpg" alt="" class="img-fluid">
@@ -67,7 +67,7 @@
           			<div class="row">
           				<div class="col-lg-8 details order-2 order-lg-1">
           					<h3>Payment Process</h3>
-          					<p><%= @admission.payment_process%></p>
+          					<p><%= @admission.payment_process.html_safe%></p>
           				</div>
           				<div class="col-lg-4 text-center order-1 order-lg-2">
           					<img src="assets/img/departments-3.jpg" alt="" class="img-fluid">
@@ -78,7 +78,7 @@
           			<div class="row">
           				<div class="col-lg-8 details order-2 order-lg-1">
           					<h3>Useful Informations</h3>
-          					<p><%= @admission.useful_information%></p>
+          					<p><%= @admission.useful_information.html_safe%></p>
           				</div>
           				<div class="col-lg-4 text-center order-1 order-lg-2">
           					<img src="assets/img/departments-4.jpg" alt="" class="img-fluid">
@@ -122,11 +122,13 @@
     <!-- ======= Marketing Headline ======= -->
     <section id="cta" class="cta">
     	<div class="container aos-init aos-animate " data-aos="zoom-in">
-    		<div class="text-center">
-    			<h3>Marketing Headline</h3>
-    			<p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    			<a class="cta-btn" href="#">Get Your Degree</a>
-    		</div>
+			<% @marketing.where(page_to_display: 'admission').each do |m|%>
+				<div class="text-center">
+					<h3><%= m.headline_title%></h3>
+					<p><%= m.description%></p>
+					<a class="cta-btn" href="<%= m.action%>">Learn more</a>
+				</div>
+			<% end %>
     	</div>
     </section> <!-- End Marketing -->
   </main>

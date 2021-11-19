@@ -79,11 +79,13 @@
 
    	<section id="cta" class="cta" data-aos="zoom-in" data-aos-delay="100">
    		<div class="container aos-init aos-animate " data-aos="zoom-in">
-   			<div class="text-center">
-   				<h3>Marketing Headline</h3>
-   				<p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-   				<a class="cta-btn" href="#">Learn more</a>
-   			</div>
+			<% @marketing.where(page_to_display: 'home').each do |m|%>
+				<div class="text-center">
+					<h3><%= m.headline_title%></h3>
+					<p><%= m.description%></p>
+					<a class="cta-btn" href="<%= m.action%>">Learn more</a>
+				</div>
+			<% end %>
    		</div>
    	</section>
 
@@ -98,46 +100,17 @@
 
    			<div class="row">
 
-   				<div class="col-lg-3" style="padding-right: 5px;">
-   					<div class="post-box bg-white">
-   						<div class="post-img"><img src="https://iias.ca/wp-content/uploads/2018/01/Marketing-Plan.jpg" class="img-fluid" alt=""></div>
-
-   						<h3 class="post-title">Marketing</h3>
-   						<span class="post-date"><strong>modality:- online, regular, extention & distance </strong></span>
-   						<span class="post-date mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-   						<a href="blog-singe.html" class="readmore stretched-link mt-auto"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+   				<%Program.where(study_level: 'undergraduate').each do |pro|%>
+				    <div class="col-lg-3" style="padding-right: 5px;">
+						<div class="post-box">
+							<div class="post-img"><img src="https://iedunote.com/img/1547/functions-steps-of-management-process.png" class="img-fluid" alt=""></div>
+							<h3 class="post-title"><%= pro.program_name%></h3>
+							<span class="post-date"><strong>modality:-</strong><%=  pro.modality%></span>
+							<span class="post-date mb-4"><%= pro.program_description%></span>
+							<%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
+						</div>
    					</div>
-   				</div>
-   				<div class="col-lg-3" style="padding-right: 5px;">
-   					<div class="post-box">
-   						<div class="post-img"><img src="https://iedunote.com/img/1547/functions-steps-of-management-process.png" class="img-fluid" alt=""></div>
-
-   						<h3 class="post-title">Management</h3>
-   						<span class="post-date"><strong>modality:-</strong> online, regular, extention & distance</span>
-   						<span class="post-date mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-   						<a href="blog-singe.html" class="readmore stretched-link mt-auto"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-   					</div>
-   				</div>
-   				<div class="col-lg-3" style="padding-right: 5px;">
-   					<div class="post-box">
-   						<div class="post-img"><img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera-course-photos.s3.amazonaws.com/d9/b7a0d0ff9c11e6b4394f01375dc7b5/FAFLogo.jpg?auto=format%2Ccompress&dpr=1" class="img-fluid" alt=""></div>
-
-   						<h3 class="post-title">Accounting</h3>
-   						<span class="post-date"><strong>modality:-</strong> online, regular, extention & distance</span>
-   						<span class="post-date mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-   						<a href="blog-singe.html" class="readmore stretched-link mt-auto"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-   					</div>
-   				</div>
-   				<div class="col-lg-3" style="padding-right: 5px;">
-   					<div class="post-box">
-   						<div class="post-img"><img src="https://lh4.googleusercontent.com/2ZyIwfve5uoi0ErMb23VeiDW1zbVbPRoRRXdjDxGCIwd9uXtGL0il0Gew-CWmOx4KJr8cIrjlUA8PlBviltpe9axXLK6Yt0CfZcArnHdsVxmEwYUEP9O6vkOUlR9jXDrlMfvwlws" class="img-fluid" alt=""></div>
-
-   						<h3 class="post-title">Leadership</h3>
-   						<span class="post-date"><strong>modality:-</strong> online, regular, extention & distance</span>
-   						<span class="post-date mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-   						<a href="blog-singe.html" class="readmore stretched-link mt-auto"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-   					</div>
-   				</div>
+				<% end %>
 
    			</div>
 
@@ -154,48 +127,18 @@
    			</header>
 
    			<div class="row">
-
-   				<div class="col-lg-3" style="padding-right: 5px;">
-   					<div class="post-box bg-white">
-   						<div class="post-img"><img src="https://iias.ca/wp-content/uploads/2018/01/Marketing-Plan.jpg" class="img-fluid" alt=""></div>
-
-   						<h3 class="post-title">Marketing</h3>
-   						<span class="post-date"><strong>modality:- online, regular, extention & distance </strong></span>
-   						<span class="post-date mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-   						<a href="blog-singe.html" class="readmore stretched-link mt-auto"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+				<%Program.where(study_level: 'graduate').each do |pro|%>
+					<div class="col-lg-3" style="padding-right: 5px;">
+						<div class="post-box">
+							<div class="post-img"><img src="https://iedunote.com/img/1547/functions-steps-of-management-process.png" class="img-fluid" alt=""></div>
+							<h3 class="post-title"><%= pro.program_name%></h3>
+							<span class="post-date"><strong>modality:-</strong><%=  pro.modality%></span>
+							<span class="post-date mb-4"><%= pro.program_description%></span>
+							<%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
+						</div>
    					</div>
-   				</div>
-   				<div class="col-lg-3" style="padding-right: 5px;">
-   					<div class="post-box">
-   						<div class="post-img"><img src="https://iedunote.com/img/1547/functions-steps-of-management-process.png" class="img-fluid" alt=""></div>
-
-   						<h3 class="post-title">Management</h3>
-   						<span class="post-date"><strong>modality:-</strong> online, regular, extention & distance</span>
-   						<span class="post-date mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-   						<a href="blog-singe.html" class="readmore stretched-link mt-auto"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-   					</div>
-   				</div>
-   				<div class="col-lg-3" style="padding-right: 5px;">
-   					<div class="post-box">
-   						<div class="post-img"><img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera-course-photos.s3.amazonaws.com/d9/b7a0d0ff9c11e6b4394f01375dc7b5/FAFLogo.jpg?auto=format%2Ccompress&dpr=1" class="img-fluid" alt=""></div>
-
-   						<h3 class="post-title">Accounting</h3>
-   						<span class="post-date"><strong>modality:-</strong> online, regular, extention & distance</span>
-   						<span class="post-date mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-   						<a href="blog-singe.html" class="readmore stretched-link mt-auto"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-   					</div>
-   				</div>
-   				<div class="col-lg-3" style="padding-right: 5px;">
-   					<div class="post-box">
-   						<div class="post-img"><img src="https://lh4.googleusercontent.com/2ZyIwfve5uoi0ErMb23VeiDW1zbVbPRoRRXdjDxGCIwd9uXtGL0il0Gew-CWmOx4KJr8cIrjlUA8PlBviltpe9axXLK6Yt0CfZcArnHdsVxmEwYUEP9O6vkOUlR9jXDrlMfvwlws" class="img-fluid" alt=""></div>
-
-   						<h3 class="post-title">Leadership</h3>
-   						<span class="post-date"><strong>modality:-</strong> online, regular, extention & distance</span>
-   						<span class="post-date mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-   						<a href="blog-singe.html" class="readmore stretched-link mt-auto"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-   					</div>
-   				</div>
-
+				<% end %>
+   				
    			</div>
 
    		</div>
@@ -210,9 +153,9 @@
    			<div class="row no-gutters">
    				<div class="content col-xl-5 d-flex align-items-stretch">
    					<div class="content">
-   						<h3>15+ Years Of Academic Services</h3>
+   						<h3><%= Time.now.year - @college.establishment_date.year %> Years Of Academic Services</h3>
    						<p>
-   							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
+   							<%= @college.overview %>
    						</p>
    						<a href="#" class="about-btn"><span>About us</span> <i class="bx bx-chevron-right"></i></a>
    					</div>
@@ -223,12 +166,12 @@
    							<div class="col-md-6 icon-box mt-0" data-aos="fade-up" data-aos-delay="100">
    								<i class="bx bx-receipt"></i>
    								<h4>Vision</h4>
-   								<p>To be among the leading international center of excellence, respected for the range of  academic programs it offers, for the capable and confident graduates it produces and for their contribution to local and global developments.</p>
+   								<p><%= @college.vision.html_safe%></p>
    							</div>
    							<div class="col-md-6 icon-box mt-0" data-aos="fade-up" data-aos-delay="200">
    								<i class="bx bx-cube-alt"></i>
    								<h4>Mission </h4>
-   								<p>Create qualified Professionals in the educational fields that it offers and contribute to the Alleviation of the   skilled manpower needs of the country;</p>
+   								<p><%= @college.mission.html_safe%></p>
    							</div>
                 <!-- <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
                   <i class="bx bx-images"></i>
@@ -255,36 +198,17 @@
     			<h2>News</h2>
     			<p>Latest News & Events</p>
     		</header>
-
     		<div class="row">
-
-    			<div class="col-lg-4">
-    				<div class="post-box">
-    					<div class="post-img"><%= image_tag "blog-1.jpg", class:"img-fluid", alt:""%></div>
-    					<span class="post-date">Tue, September 15</span>
-    					<h3 class="post-title">Eum ad dolor et. Autem aut fugiat debitis voluptatem consequuntur sit</h3>
-    					<a href="blog-singe.html" class="readmore stretched-link mt-auto"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-    				</div>
-    			</div>
-
-    			<div class="col-lg-4">
-    				<div class="post-box">
-    					<div class="post-img"><%= image_tag "blog-3.jpg", class: "img-fluid", alt:""%></div>
-    					<span class="post-date">Fri, August 28</span>
-    					<h3 class="post-title">Et repellendus molestiae qui est sed omnis voluptates magnam</h3>
-    					<a href="blog-singe.html" class="readmore stretched-link mt-auto"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-    				</div>
-    			</div>
-
-    			<div class="col-lg-4">
-    				<div class="post-box">
-    					<div class="post-img"><%= image_tag "blog-2.jpg", class: "img-fluid", alt:""%></div>
-    					<span class="post-date">Mon, July 11</span>
-    					<h3 class="post-title">Quia assumenda est et veritatis aut quae</h3>
-    					<a href="blog-singe.html" class="readmore stretched-link mt-auto"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-    				</div>
-    			</div>
-
+    			<% @news.each do |n|%>
+					<div class="col-lg-4">
+					<div class="post-box">
+						<div class="post-img"><%= image_tag n.photo %></div>
+						<span class="post-date"><%= n.created_at%></span>
+						<h3 class="post-title"><%= n.news_title %></h3>
+						<a href="news.html" class="readmore stretched-link mt-auto"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+					</div>
+					</div>
+				<% end %>
     		</div>
 
     	</div>
@@ -293,11 +217,13 @@
 
     <section id="cta" class="cta">
     	<div class="container aos-init aos-animate " data-aos="zoom-in">
-    		<div class="text-center">
-    			<h3>Marketing Headline</h3>
-    			<p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    			<a class="cta-btn" href="#">Learn more</a>
-    		</div>
+			<% @marketing.where(page_to_display: 'home').each do |m|%>
+				<div class="text-center">
+					<h3><%= m.headline_title%></h3>
+					<p><%= m.description%></p>
+					<a class="cta-btn" href="<%= m.action%>">Learn more</a>
+				</div>
+			<% end %>
     	</div>
     </section>
 
@@ -315,72 +241,20 @@
     		<div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
     			<div class="col-xl-10">
     				<div class="owl-carousel testimonials-carousel">
-
-    					<div class="testimonial-wrap">
-    						<div class="testimonial-item">
-    							<img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-    							<h3>Saul Goodman</h3>
-    							<h4>Ceo &amp; Founder</h4>
-    							<p>
-    								<i class="bx bxs-quote-alt-left quote-icon-left"></i>
-    								Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-    								<i class="bx bxs-quote-alt-right quote-icon-right"></i>
-    							</p>
-    						</div>
-    					</div>
-
-    					<div class="testimonial-wrap">
-    						<div class="testimonial-item">
-    							<img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-    							<h3>Sara Wilsson</h3>
-    							<h4>Designer</h4>
-    							<p>
-    								<i class="bx bxs-quote-alt-left quote-icon-left"></i>
-    								Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-    								<i class="bx bxs-quote-alt-right quote-icon-right"></i>
-    							</p>
-    						</div>
-    					</div>
-
-    					<div class="testimonial-wrap">
-    						<div class="testimonial-item">
-    							<img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-    							<h3>Jena Karlis</h3>
-    							<h4>Store Owner</h4>
-    							<p>
-    								<i class="bx bxs-quote-alt-left quote-icon-left"></i>
-    								Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-    								<i class="bx bxs-quote-alt-right quote-icon-right"></i>
-    							</p>
-    						</div>
-    					</div>
-
-    					<div class="testimonial-wrap">
-    						<div class="testimonial-item">
-    							<img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-    							<h3>Matt Brandon</h3>
-    							<h4>Freelancer</h4>
-    							<p>
-    								<i class="bx bxs-quote-alt-left quote-icon-left"></i>
-    								Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-    								<i class="bx bxs-quote-alt-right quote-icon-right"></i>
-    							</p>
-    						</div>
-    					</div>
-
-    					<div class="testimonial-wrap">
-    						<div class="testimonial-item">
-    							<img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-    							<h3>John Larson</h3>
-    							<h4>Entrepreneur</h4>
-    							<p>
-    								<i class="bx bxs-quote-alt-left quote-icon-left"></i>
-    								Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat esse veniam culpa fore nisi cillum quid.
-    								<i class="bx bxs-quote-alt-right quote-icon-right"></i>
-    							</p>
-    						</div>
-    					</div>
-
+						<% @comment.where(display_on_home_page: true).each do |c|%>
+							<div class="testimonial-wrap">
+								<div class="testimonial-item">
+								<img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+								<h3><%= c.fullname%></h3>
+								<h4>Ceo &amp; Founder</h4>
+								<p>
+								<i class="bx bxs-quote-alt-left quote-icon-left"></i>
+								<%= c.message%>
+								<i class="bx bxs-quote-alt-right quote-icon-right"></i>
+								</p>
+								</div>
+							</div>
+						<% end %>
     				</div>
     			</div>
     		</div>
