@@ -5,6 +5,7 @@ class PagesController < ApplicationController
     @marketing = MarketingSection.all
     @news = News.all
     @programs = Program.all
+    @admissions = Admission.all
   end
 
   def contact

@@ -10,7 +10,7 @@
    						<%= image_tag "logo223.png", size: "250x75"%>
    						<h1>YIC Started online masters Registration </h1>
    						<h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h2>
-   						<a href="#about" class="btn-get-started scrollto">Apply now</a>
+   						<a href="https://sis.yic.edu.et/students/sign_up" class="btn-get-started scrollto">Apply now</a>
    					</div>
    					<div class="col-12 col-xl-6 mt-3 mb-2">
    						<div class="embed-responsive embed-responsive-16by9">
@@ -33,45 +33,16 @@
    			</div>
 
    			<div class="row justify-content-center">
-
-   				<div class="col-lg-3 col-md-6">
-   					<a href="">
-   						<div class="icon-box d-flex justify-content-center">
-   							<!-- <div class="icon"><i class="fas fa-heartbeat"></i></div> -->
-   							<h4 class="d-flex align-items-center"><a href="">online masters graduate</a></h4>
-   						</div>
-   					</a>
-   				</div>
-   				<div class="col-lg-3 col-md-6">
-   					<div class="icon-box d-flex justify-content-center">
-   						<!-- <div class="icon"><i class="fas fa-heartbeat"></i></div> -->
-   						<h4 class="d-flex align-items-center ml-0"><a href="">regular masters graduate</a></h4>
-   					</div>
-   				</div>
-   				<div class="col-lg-3 col-md-6">
-   					<div class="icon-box d-flex justify-content-center">
-   						<!-- <div class="icon"><i class="fas fa-heartbeat"></i></div> -->
-   						<h4 class="d-flex align-items-center ml-0"><a href="">regular degree graduate</a></h4>
-   					</div>
-   				</div>
-   				<div class="col-lg-3 col-md-6">
-   					<div class="icon-box d-flex justify-content-center">
-   						<!-- <div class="icon"><i class="fas fa-heartbeat"></i></div> -->
-   						<h4 class="d-flex align-items-center ml-0"><a href="">extension graduate</a></h4>
-   					</div>
-   				</div>
-   				<div class="col-lg-3 col-md-6">
-   					<div class="icon-box d-flex justify-content-center">
-   						<!-- <div class="icon"><i class="fas fa-heartbeat"></i></div> -->
-   						<h4 class="d-flex align-items-center ml-0"><a href="">distance degree graduate</a></h4>
-   					</div>
-   				</div>
-   				<div class="col-lg-3 col-md-6">
-   					<div class="icon-box d-flex justify-content-center">
-   						<!-- <div class="icon"><i class="fas fa-heartbeat"></i></div> -->
-   						<h4 class="d-flex align-items-center ml-0"><a href="">TBVT graduate</a></h4>
-   					</div>
-   				</div>
+				
+				<% @admissions.each do |admission| %>
+					<div class="col-lg-3 col-md-6">
+						<a href="admissions/<%= admission.id%>">
+							<div class="icon-box d-flex justify-content-center">
+								<h4 class="d-flex align-items-center"><a href="admissions/<%= admission.id%>"><%= admission.modality %> <%= admission.study_level%></a></h4>
+							</div>
+						</a>
+					</div>
+				<% end %>
    			</div>
 
    		</div>
@@ -157,7 +128,7 @@
    						<p>
    							<%= @college.overview %>
    						</p>
-   						<a href="#" class="about-btn"><span>About us</span> <i class="bx bx-chevron-right"></i></a>
+   						<a href="about" class="about-btn"><span>About us</span> <i class="bx bx-chevron-right"></i></a>
    					</div>
    				</div>
    				<div class="col-xl-7 d-flex align-items-stretch">
