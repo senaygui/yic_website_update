@@ -20,23 +20,20 @@
           <h4>Useful Links</h4>
           <ul>
             <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="about">About us</a></li>
             <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Admission</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Accreditation</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="accreditation">Accreditation</a></li>
             <li><i class="bx bx-chevron-right"></i> <a href="#">Office</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Programs</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="programs">Programs</a></li>
           </ul>
         </div>
 
         <div class="col-lg-3 col-md-6 footer-links">
           <h4>Our Admission</h4>
           <ul>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Regular</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Distance</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Online</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Extension</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">TBVT</a></li>
+            <% Admission.all.each do |admission| %>
+              <li><i class="bx bx-chevron-right"></i> <a href="admissions/<%= admission.id%>"><%= admission.modality%></a></li>
+            <% end %>
           </ul>
         </div>
 
