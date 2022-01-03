@@ -1,5 +1,5 @@
 ActiveAdmin.register VisitorComment do
-permit_params :fullname,:category,:subject,:message,:email,:phone_number,:display_on_home_page
+permit_params :fullname,:category,:subject,:message,:email,:phone_number,:display_on_home_page,:main_testimonial, :photo
 
 menu label: "Comment"
   controller do
@@ -47,6 +47,8 @@ menu label: "Comment"
         row :display_on_home_page
         row :created_at
         row :updated_at
+        row :main_testimonial
+        row :photo
       end  
       
     end

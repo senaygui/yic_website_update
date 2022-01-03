@@ -207,6 +207,27 @@
     		</div>
     	</div>
 
+		<section id="about" class="about section-bg">
+			<div class="container" data-aos="fade-up">
+				<div class="row no-gutters">
+				<% @comment.where(display_on_home_page: true).where(main_testimonial: true).each do |s|%>
+					<div class="col-xl-6 d-flex align-items-stretch mt-5 image-warp">
+						<%= image_tag(s.photo) if s.photo.attached?%>
+					</div>
+					<div class="content col-xl-6 d-flex align-items-stretch">
+					<div class="content">
+					<h3><%= s.fullname%></h3>
+					  <p>
+						<%= s.message.html_safe %>
+					  </p>
+					</div>
+					</div>
+
+				<%end%>
+			</div>
+			</div>
+		</section>
+
     	<div class="container-fluid">
 
     		<div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
@@ -242,6 +263,7 @@
     			<h2>Contact</h2>
     			<p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p>
     		</div>
+			<div class="text-center"><button class="btn btn-primary mb-4">Check Our Branches</button></div>
 
     		<div class="row" data-aos="fade-up" data-aos-delay="100">
 

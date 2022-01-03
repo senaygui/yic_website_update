@@ -43,6 +43,12 @@ ActiveAdmin.register Program do
       f.input :monthly_tuition
       f.input :total_tuition
       f.input :photo, as: :file
+
+      f.inputs 'Career Opportunities' do
+        f.has_many  :career_opportunities do |d|
+          d.input :title
+        end
+      end  
       if f.object.new_record?
         f.input :created_by, as: :hidden, :input_html => { :value => current_admin_user.name.full}
       else

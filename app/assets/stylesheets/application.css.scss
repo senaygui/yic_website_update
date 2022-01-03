@@ -2681,3 +2681,28 @@ section {
 .template-card .buttons a.download {
     margin: 0 8px;
 }
+
+.image_wrap {
+  width: 150px;
+  height: 100px;
+  margin: 0 0 0 -20px;
+  -webkit-transform: skew(20deg);
+     -moz-transform: skew(20deg);
+       -o-transform: skew(20deg);
+  background: red;
+  overflow:hidden;
+  position:relative; border-right:4px solid red
+}
+.image{
+  background: url(http://placekitten.com/301/301);
+  position:absolute;
+  top:-30px;
+  left:-30px;
+  right:-30px;
+  bottom:-30px;
+      -webkit-transform: skew(-20deg);
+     -moz-transform: skew(-20deg);
+       -o-transform: skew(-20deg);
+       
+       border-right:4px solid red
+}

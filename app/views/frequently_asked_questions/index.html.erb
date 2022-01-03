@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Frequently Asked Questions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Question</th>
+      <th>Answer</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @frequently_asked_questions.each do |frequently_asked_question| %>
+      <tr>
+        <td><%= frequently_asked_question.question %></td>
+        <td><%= frequently_asked_question.answer %></td>
+        <td><%= link_to 'Show', frequently_asked_question %></td>
+        <td><%= link_to 'Edit', edit_frequently_asked_question_path(frequently_asked_question) %></td>
+        <td><%= link_to 'Destroy', frequently_asked_question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Frequently Asked Question', new_frequently_asked_question_path %>

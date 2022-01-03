@@ -9,6 +9,7 @@ class PagesController < ApplicationController
   end
 
   def contact
+    @branches = Branch.all
   end
 
   def about
@@ -19,6 +20,7 @@ class PagesController < ApplicationController
     @comment = VisitorComment.all
     @marketing = MarketingSection.all
     @news = News.all
+    @faq = FrequentlyAskedQuestion.all
   end
 
   def accreditation

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_06_111052) do
+ActiveRecord::Schema.define(version: 2022_01_03_214338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -106,6 +106,17 @@ ActiveRecord::Schema.define(version: 2021_10_06_111052) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "branches", force: :cascade do |t|
+    t.string "location"
+    t.string "name"
+    t.integer "phone_number"
+    t.integer "second_phone_number"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "map"
+  end
+
   create_table "career_opportunities", force: :cascade do |t|
     t.bigint "program_id"
     t.string "title", null: false
@@ -117,16 +128,16 @@ ActiveRecord::Schema.define(version: 2021_10_06_111052) do
   create_table "colleges", force: :cascade do |t|
     t.string "college_name", null: false
     t.text "background"
-    t.text "mission"
-    t.text "vision"
-    t.text "overview"
-    t.datetime "establishment_date"
-    t.integer "student_enrolled"
-    t.integer "distance_center"
-    t.integer "number_of_prorgam"
-    t.text "mandate"
-    t.text "history"
-    t.string "headquarter_address"
+    t.text "mission", null: false
+    t.text "vision", null: false
+    t.text "overview", null: false
+    t.datetime "establishment_date", null: false
+    t.integer "student_enrolled", null: false
+    t.integer "distance_center", null: false
+    t.integer "number_of_prorgam", null: false
+    t.text "mandate", null: false
+    t.text "history", null: false
+    t.string "headquarter_address", null: false
     t.string "alternative_address"
     t.string "sub_city"
     t.string "state"
@@ -135,15 +146,33 @@ ActiveRecord::Schema.define(version: 2021_10_06_111052) do
     t.string "worda"
     t.string "city"
     t.string "country"
-    t.string "phone_number"
-    t.string "alternative_phone_number"
-    t.string "email"
+    t.string "phone_number", null: false
+    t.string "alternative_phone_number", null: false
+    t.string "email", null: false
     t.string "facebook_handle"
     t.string "twitter_handle"
     t.string "instagram_handle"
+    t.string "linkedin_handle"
     t.string "map_embed"
     t.string "created_by"
     t.string "last_updated_by"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "goal"
+    t.string "video_link"
+    t.bigint "college_id"
+    t.index ["college_id"], name: "index_colleges_on_college_id"
+  end
+
+  create_table "facuilties", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "frequently_asked_questions", force: :cascade do |t|
+    t.text "question"
+    t.text "answer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -180,6 +209,8 @@ ActiveRecord::Schema.define(version: 2021_10_06_111052) do
     t.string "last_updated_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "facuilty_id"
+    t.index ["facuilty_id"], name: "index_programs_on_facuilty_id"
   end
 
   create_table "section_headlines", force: :cascade do |t|
@@ -188,9 +219,11 @@ ActiveRecord::Schema.define(version: 2021_10_06_111052) do
     t.string "service_headline"
     t.string "accreditation"
     t.string "testimonial_headline"
-    t.string "home_page_video_embed"
-    t.string "home_page_carousel_headline"
-    t.string "home_page_carousel_description"
+    t.string "home_page_video_embed", default: "https://www.youtube.com/embed/Sxuk-tbnNtE"
+    t.string "home_page_carousel_headline", default: "YIC Started online masters Registration"
+    t.string "home_page_carousel_description", default: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+    t.string "primary_cta_action", default: "#"
+    t.string "secondary_cta_action", default: "about_path"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["college_id"], name: "index_section_headlines_on_college_id"
@@ -228,7 +261,10 @@ ActiveRecord::Schema.define(version: 2021_10_06_111052) do
     t.boolean "display_on_home_page", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "main_testimonial"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "colleges", "colleges"
+  add_foreign_key "programs", "facuilties"
 end

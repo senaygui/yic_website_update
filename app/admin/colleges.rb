@@ -59,6 +59,17 @@ ActiveAdmin.register College do
       f.input :instagram_handle
       # f.input :linkedin_handle
     end
+
+    f.inputs 'Branches' do
+      f.has_many  :branches do |d|
+        d.input :location
+        d.input :name
+        d.input :map
+        d.input :phone_number
+        d.input :second_phone_number
+        d.input :email
+      end
+    end  
     if f.object.new_record?
       f.input :created_by, as: :hidden, :input_html => { :value => current_admin_user.name.full}
     else
@@ -104,6 +115,9 @@ ActiveAdmin.register College do
         row :last_updated_by
         row :created_at
         row :updated_at
+        row "branches" do |pr|
+		    	pr.branches.name
+		    end
       end
     end
   end

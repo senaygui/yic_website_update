@@ -15,6 +15,6 @@ class Program < ApplicationRecord
   ##associations
 	has_many :accreditations
   has_many :career_opportunities
-
+  accepts_nested_attributes_for :career_opportunities, :allow_destroy => true
   has_one_attached :photo
 end

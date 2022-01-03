@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :frequently_asked_questions
+  resources :branches
   get 'contact' => 'pages#contact'
   get 'about' => 'pages#about'
   get 'accreditation' => 'pages#accreditation'
