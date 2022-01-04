@@ -18,7 +18,7 @@
         <div class="col-lg-8 entries">
           <%# <% @news do |n|%>
             <article class="entry">
-            <div><%= image_tag @staff.photo %></div>
+            <div><%= image_tag @staff.photo, class: "img-fluid" %></div>
               <div class="entry-content">
                 <p style="text-align: justify;"><%= @staff.message.html_safe%></p>  
               </div>
@@ -35,13 +35,12 @@
 			        <br>
               <div class="entry-meta">
                 <ul>
-                  <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="#"><%= @staff.office_name.upcase%></a>,<%= @staff.job_title%></li>
-                  <li><p>Major Responsibilities</p></li>
-                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i><%=@staff.major_responsibilities.html_safe%></li>
-                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i><%=@staff.offices_that_answerable_to.html_safe%></li>
-                  <li class="d-flex align-items-center"><i class="icofont-bullseye"></i><%=@staff.office_address.html_safe%></li>
-                  <li class="d-flex align-items-center"><i class="icofont-phone"></i><%=@staff.office_phone_number.html_safe%></li> 
-                  <li class="d-flex align-items-center"><i class="icofont-email"></i><%=@staff.email.html_safe%></li>               
+                  <i class="icofont-user"></i> <a href="#" class="ml-3"><%= @staff.office_name.upcase%></a>
+                  <li class="d-flex "><i class="icofont-wall-clock mr-3 mb-3"></i><%=@staff.major_responsibilities.html_safe%></li>
+                  <li class="d-flex "><i class="icofont-wall-clock mr-3 mb-3"></i><%=@staff.offices_that_answerable_to.html_safe%></li>
+                  <li class="d-flex "><i class="icofont-bullseye mr-3 mb-3"></i><%=@staff.office_address.html_safe%></li>
+                  <li class="d-flex "><i class="icofont-phone mr-3 mb-3"></i><%=@staff.office_phone_number.html_safe%></li> 
+                  <li class="d-flex "><i class="icofont-email mr-3 mb-3"></i><%=@staff.email.html_safe%></li>               
                 </ul>
               </div>
               </div>
