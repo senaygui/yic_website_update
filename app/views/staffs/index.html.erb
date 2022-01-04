@@ -21,9 +21,9 @@
                   <div class="col-lg-3">
                     <div class="post-box">
                       <div class="post-img"><%= image_tag staff.photo %></div>
-                      <h3 class="post-title"><%= staff.fullname %></h3>
-                      <h4 class="post-title"><%= staff.office_name %>,<%= staff.job_title %></h4>
-                      <p style="text-align: justify;"><%=truncate(staff.message, :length=>256)%></p>
+                      <h4 class="post-title"><%= staff.fullname %></h4>
+                      <h6 class="text-dark"><b><%= staff.office_name %></b></h6>
+                      <p style="text-align: justify;" class="text-secondary"><%=truncate(staff.message, :length=>256)%></p>
                       <%=link_to staff_path(staff), class:"readmore stretched-link mt-auto" do%>
                         <span>Read More</span><i class="bi bi-arrow-right"></i>
                       <%end%>
