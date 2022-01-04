@@ -12,7 +12,7 @@ class VisitorCommentsController < ApplicationController
   
       respond_to do |format|
         if @program.save
-          format.html { redirect_to @program, notice: "Comment was successfully created." }
+          format.html { redirect_to root_path, notice: "Comment was successfully created." }
           format.json { render :show, status: :created, location: @program }
         else
           format.html { render :new, status: :unprocessable_entity }
@@ -29,7 +29,6 @@ class VisitorCommentsController < ApplicationController
   
       # Only allow a list of trusted parameters through.
       def program_params
-        params.permit(:fullname,:category,:subject,:message,:email,:phone_number,:display_on_home_page,:main_testimonial, :photo)
+        params.require(:visitor_comment).permit(:fullname,:category,:subject,:message,:email,:phone_number,:display_on_home_page,:main_testimonial, :photo)
       end
-  end
 end
