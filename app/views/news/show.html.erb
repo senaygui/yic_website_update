@@ -1,4 +1,65 @@
-<p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_news_path(@news) %> |
-<%= link_to 'Back', news_index_path %>
+  <main id="main">
+    <section class="breadcrumbs">
+  		<div class="container">
+
+        <ol>
+          <li><%=link_to "Home","/"%></li>
+          <li>News & Events</li>
+        </ol>
+        <h2>News & Events</h2>
+
+  		</div>
+  	</section>
+
+    <section id="blog" class="blog">
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+          <div class="col-lg-8 entries">
+          <%# <% @news do |n|%>
+            <article class="entry">
+            <div class="post-img"><%= image_tag @news.photo %></div>
+              <h2 class="entry-title">
+                <div style= "color :#0975b8"><%= @news.news_title.html_safe%></div>
+              </h2>
+			        <br>
+			        <div class="entry-img">
+                <img src="assets/img/blog/blog-1.jpg" alt="" class="img-fluid">
+              </div>
+              <div class="entry-meta">
+                <ul>
+                  <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="blog-single.html"><%= @news.published_by%></a></li>
+                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01"><%= @news.created_at%></time></a></li>               
+                </ul>
+              </div>
+              <div class="entry-content">
+                <p><%= @news.body.html_safe%></p>  
+              </div>
+            </article>
+          <%# <% end %> 
+            
+          </div>
+
+          <div class="col-lg-4">
+            <div class="sidebar">
+              <h3 class="sidebar-title">Recent Events</h3>
+              <div class="sidebar-item">
+              <%@last_five_news.each do |news|%>
+                <div class="post-item clearfix">
+                  <h4><%= link_to news.news_title,news_path(news.id)%></h4>
+                </div>
+              <%end%>
+              </div>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+    </section>
+    </main>
+
+

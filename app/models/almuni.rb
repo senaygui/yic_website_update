@@ -16,4 +16,8 @@ class Almuni < ApplicationRecord
     GenerateQr.call(self)
     GenerateBarcode.call(self)
   end
+
+  extend FriendlyId
+  friendly_id :fullname
+
 end

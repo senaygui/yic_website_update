@@ -3,11 +3,14 @@ class NewsController < ApplicationController
 
   # GET /news or /news.json
   def index
-    @news = News.all
+    # @news = News.all
+    @news = News.order('created_at DESC').page params[:page]
   end
 
   # GET /news/1 or /news/1.json
   def show
+    @news= News.friendly.find(params[:id])
+    @last_five_news=News.last(5)
   end
 
   # GET /news/new
@@ -59,7 +62,7 @@ class NewsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_news
-      @news = News.find(params[:id])
+      @news = News.friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

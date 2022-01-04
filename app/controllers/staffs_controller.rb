@@ -3,7 +3,8 @@ class StaffsController < ApplicationController
 
   # GET /staffs or /staffs.json
   def index
-    @staffs = Staff.all
+    # @staffs = Staff.all
+    @staffs = Staff.order('created_at DESC').page params[:page]
   end
 
   # GET /staffs/1 or /staffs/1.json
@@ -59,7 +60,7 @@ class StaffsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_staff
-      @staff = Staff.find(params[:id])
+      @staff = Staff.friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

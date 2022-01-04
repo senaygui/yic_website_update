@@ -12,19 +12,31 @@
             Asmara Street <br>
             Addis Ababa, Ethiopia<br><br>
             <strong>Phone:</strong> +251-906505050<br>
-            <strong>Email:</strong> info@yic.edu.et<br>
+            <strong>Email:</strong> info@heuc@edu.et<br>
           </p>
         </div>
 
         <div class="col-lg-2 col-md-6 footer-links">
           <h4>Useful Links</h4>
           <ul>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="about">About us</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="accreditation">Accreditation</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Office</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="programs">Programs</a></li>
+            <li><%= link_to "#" do %>
+            <i class="bx bx-chevron-right"></i><span>Home</span>
+            <% end%></li>
+            <li><%= link_to "about" do %>
+            <i class="bx bx-chevron-right"></i><span>About us</span>
+            <% end%></li>
+            <li><%= link_to "#" do %>
+            <i class="bx bx-chevron-right"></i><span>Services</span>
+            <% end%></li>
+            <li><%= link_to "accreditation" do %>
+            <i class="bx bx-chevron-right"></i><span>Accreditation</span>
+            <% end%></li>
+            <li><%= link_to "#" do %>
+            <i class="bx bx-chevron-right"></i><span>Office</span>
+            <% end%></li>
+            <li><%= link_to "programs" do %>
+            <i class="bx bx-chevron-right"></i><span>Programs</span>
+            <% end%></li>
           </ul>
         </div>
 
@@ -32,20 +44,33 @@
           <h4>Our Admission</h4>
           <ul>
             <% Admission.all.each do |admission| %>
-              <li><i class="bx bx-chevron-right"></i> <a href="admissions/<%= admission.id%>"><%= admission.modality%></a></li>
+              <li><i class="bx bx-chevron-right"></i> 
+              <%=link_to "#{admission.modality}", "admissions/#{admission.id}"%></li>
             <% end %>
           </ul>
         </div>
 
-        <div class="col-lg-3 col-md-6 footer-links">
+        <div class="col-lg-3 col-md-12 footer-links">
           <h4>Our Social Networks</h4>
           <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
           <div class="social-links mt-3">
-            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-            <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            <%= link_to "#{College.last.twitter_handle}", class:"twitter" do %>
+            <i class="bx bxl-twitter"></i>
+            <% end%>
+            <%= link_to "#{College.last.facebook_handle}", class:"facebook" do %>
+            <i class="bx bxl-facebook"></i>
+            <% end%>
+            <%= link_to "#{College.last.instagram_handle}", class:"instagram" do %>
+            <i class="bx bxl-instagram"></i>
+            <% end%>
+            <%= link_to "#", class:"skype" do %>
+            <i class="bx bxl-skype"></i>
+            <% end%>
+            <%= link_to "#{College.last.linkedin_handle}", class:"linkedin" do %>
+            <i class="bx bxl-linkedin"></i>
+            <% end%>
+
+
           </div>
         </div>
 
@@ -53,6 +78,16 @@
     </div>
   </div>
 
+<div class="container d-md-flex py-4">
+
+    <div class="mr-md-auto text-center text-md-left">
+      <div class="copyright">
+        &copy; Copyright <span>Hope Enterprise University College</span>. <br> All Rights Reserved.
+      </div>
+      <div class="credits text-center text-md-left">
+       <strong> DESIGNED BY : </strong>  <a href="https://yesuitsolution.com/">Yesu IT Solution PLC</a>
+     </div>
+   </div>
   <div class="container d-md-flex py-4">
 
     <div class="mr-md-auto text-center text-md-left">
@@ -60,17 +95,27 @@
         &copy; Copyright <span>Yardstick International College</span>. <br> All Rights Reserved.
       </div>
       <div class="credits">
-       <strong> DESIGNED BY : </strong>  <a href="https://yesuitsolution.com/">Yesu IT Solution PLC</a>
+       <strong> DESIGNED BY : </strong>  <%= link_to "Yesu IT Solution PLC", "https://yesuitsolution.com/"%>
      </div>
    </div>
    <div class="social-links text-center text-md-right pt-3 pt-md-0">
-    <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-    <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-    <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-    <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-    <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+   <%= link_to "#", class:"twitter" do%>
+   <i class="bx bxl-twitter"></i>
+   <%end%>
+   <%= link_to "#", class:"facebook" do%>
+   <i class="bx bxl-facebook"></i>
+   <%end%>
+   <%= link_to "#", class:"instagram" do%>
+   <i class="bx bxl-instagram"></i>
+   <%end%>
+   <%= link_to "#", class:"skype" do%>
+   <i class="bx bxl-skype"></i>
+   <%end%>
+   <%= link_to "#", class:"linkedin" do%>
+   <i class="bx bxl-linkedin"></i>
+   <%end%>
+
   </div>
 </div>
 </footer><!-- End Footer -->
-
-<a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+<%= link_to `<i class="icofont-simple-up"></i>`, `"#"  class="back-to-top"`%>

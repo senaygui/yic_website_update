@@ -1,37 +1,86 @@
-<p id="notice"><%= notice %></p>
-
- <main id="main">
+  <main id="main">
     <section class="breadcrumbs">
       <div class="container">
 
         <ol>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="program.html">Programs</a></li>
-		  <li><%= @programs.program_name %></li>
+          <li><%=link_to "Home","/"%></li>
+          <li>Programs</li>
         </ol>
-        <h2><%= @programs.program_name %></h2>
+        <h2>Programs</h2>
 
       </div>
     </section>
-	
-	<section>
-	<div class="container" data-aos="fade-up">
-		<div class="row">
-			  <div class="col-lg-1 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
-                
+    <!-- ======= Cource Details Section ======= -->
+    <section id="course-details" class="course-details">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-lg-8">
+          <h2><%= @programs.program_name.html_safe %></h2>
+          <%= image_tag @programs.photo, class: "img-fluid" %>
+            <h3><%= @programs.program_name.html_safe %></h3>
+            <%= @programs.program_description.html_safe %>
+          </div>
+          <div class="col-lg-4">
+            <div>
+
+              <div class="course-info d-flex justify-content-between align-items-center">
+                <h3>Program Info</h3>
               </div>
-              <div class="col-lg-5 order-1 order-lg-1 mt-3 mt-lg-0" data-aos="fade-up" data-aos-delay="100">
-                <h3><%= @programs.overview.html_safe %></h3>
-                <p>
-                  <%= @programs.program_description.html_safe %>
-                </p>
+              <div class="course-info d-flex justify-content-between align-items-center">
+                <h5>Study Level</h5>
+                <%= @programs.study_level.html_safe %>
               </div>
-              <div class="col-lg-5 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
-                <%= image_tag @programs.photo %>
-               </div>
+              <div class="course-info d-flex justify-content-between align-items-center">
+                <h5>Program Duration</h5>
+                <%= @programs.program_duration %>
+          
+              </div>
+
+              <div class="course-info d-flex justify-content-between align-items-center">
+                <h5>modality</h5>
+                <%= @programs.modality.html_safe %>
+              </div>
+
+              <div class="course-info d-flex justify-content-between align-items-center">
+                <h5>Total tuition</h5>
+                <%= @programs.total_tuition %>
+              </div>
+
+              <div class="course-info d-flex justify-content-between align-items-center">
+                <h5>Monthly tuition</h5>
+                <%= @programs.total_tuition %>
+              </div>
+
+              <div class="course-info d-flex justify-content-between align-items-center">
+                <h5>Credit Hour</h5>
+                <%= @programs.credit_hour %>
+              </div>
+            <div>
+            <div class="mt-5">
+                <div class="course-info d-flex justify-content-between align-items-center">
+                  <h3>Career Opportunities</h3>
+                </div>
+                <% @careerOpportunity.each do |career| %>
+                  <div class="course-info d-flex justify-content-between align-items-center">
+                    <%= career.title.html_safe %>
+                  </div>
+                <% end %>
+              
             </div>
-		</div>
-	</section>
+          </div>
+          
+        </div>
+
+      </div>
+    </section><!-- End Cource Details Section -->
+
+
+      </div>
+    </section><!-- End Cource Details Tabs Section -->
+
+  </main>
+  
 	
 	<!-- ======= Marketing Headline ======= -->
 	<section id="cta" class="cta">
@@ -40,7 +89,7 @@
 				<div class="text-center">
 					<h3><%= m.headline_title%></h3>
 					<p><%= m.description%></p>
-					<a class="cta-btn" href="<%= m.action%>">Learn more</a>
+					<%= link_to "Learn more", "#{m.action}", class:"cta-btn"%>
 				</div>
 			<% end %>
       </div>

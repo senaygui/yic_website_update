@@ -5,6 +5,10 @@ set :branch, "master"
 set :rails_env, "production"
 set :deploy_to, '/home/deploy/yic_website'
 
+APPLICATIONNAME::Application.configure do
+    config.assets.compile = true
+end
+
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.

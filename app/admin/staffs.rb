@@ -1,6 +1,6 @@
 ActiveAdmin.register Staff do
 
-permit_params :fullname,:message,:job_title,:office_name,:major_responsibilities,:offices_that_answerable_to,:office_address,:office_phone_number,:email, :photo
+permit_params :fullname,:message,:job_title,:office_name,:major_responsibilities,:offices_that_answerable_to,:office_address,:office_phone_number,:email, :photo, :office_photo
 
 
   controller do
@@ -40,6 +40,7 @@ permit_params :fullname,:message,:job_title,:office_name,:major_responsibilities
         f.input :office_phone_number
         f.input :email
         f.input :photo, as: :file
+        f.input :office_photo, as: :file
       end
       f.actions
   end
@@ -50,6 +51,7 @@ permit_params :fullname,:message,:job_title,:office_name,:major_responsibilities
         row "photo" do |pt|
           span image_tag(pt.photo, size: '300x300', class: "img-corner")
         end
+        
         row :fullname
         row :message
         row :job_title
@@ -61,6 +63,10 @@ permit_params :fullname,:message,:job_title,:office_name,:major_responsibilities
         row :email
         row :created_at
         row :updated_at
+        
+        row "office_photo" do |pt|
+          span image_tag(pt.office_photo, size: '300x300', class: "img-corner")
+        end
         
       end  
       

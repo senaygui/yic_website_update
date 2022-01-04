@@ -1,6 +1,6 @@
 ActiveAdmin.register College do
-  permit_params :college_name,:background,:mission,:vision,:overview,:establishment_date,:student_enrolled,:distance_center,:number_of_prorgam,:mandate,:history,:headquarter_address,:alternative_address,:sub_city,:state,:region,:zone,:worda,:city,:country,:phone_number,:alternative_phone_number,:email,:facebook_handle,:twitter_handle,:instagram_handle,:linkedin_handle,:map_embed,:created_by,:last_updated_by, branches_attributes: [:name,:location,:phone_number,:second_phone_number,:map,:email],section_headline_attributes: [:id,:gallery_headline,:service_headline,:accreditation,:testimonial_headline,:home_page_video_embed,:home_page_carousel_headline,:home_page_carousel_description,:primary_cta_action,:secondary_cta_action]
-
+  permit_params :video_link,:college_name,:background,:mission,:vision,:overview,:establishment_date,:student_enrolled,:distance_center,:number_of_prorgam,:mandate,:history,:headquarter_address,:alternative_address,:sub_city,:state,:region,:zone,:worda,:city,:country,:phone_number,:alternative_phone_number,:email,:facebook_handle,:twitter_handle,:instagram_handle,:linkedin_handle,:map_embed,:created_by,:last_updated_by, branches_attributes: [:name,:location,:phone_number,:second_phone_number,:map,:email],section_headline_attributes: [:id,:gallery_headline,:service_headline,:accreditation,:testimonial_headline,:home_page_video_embed,:home_page_carousel_headline,:home_page_carousel_description,:primary_cta_action,:secondary_cta_action]
+  
   index do
     selectable_column
     column :college_name
@@ -33,6 +33,7 @@ ActiveAdmin.register College do
       f.input :student_enrolled
       f.input :distance_center
       f.input :number_of_prorgam
+      f.input :video_link
     end
 
     f.inputs "College address" do
@@ -57,7 +58,7 @@ ActiveAdmin.register College do
       f.input :facebook_handle
       f.input :twitter_handle
       f.input :instagram_handle
-      # f.input :linkedin_handle
+       f.input :linkedin_handle
     end
 
     f.inputs 'Branches' do

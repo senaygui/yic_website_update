@@ -3,7 +3,7 @@
   		<div class="container">
 
   			<ol>
-  				<li><a href="/">Home</a></li>
+  				<li><%=link_to "Home","/"%></li>
   				<li><%= link_to @admission.admission_name, admission_path(@admission)%></li>
 
   			</ol>
@@ -91,7 +91,7 @@
 
       </div>
     </section>
-    <section id="recent-blog-posts" class="recent-blog-posts">
+    <section id="recent-blog-posts" class="fad-up recent-blog-posts">
 
     	<div class="container aos-init aos-animate" >
 
@@ -126,7 +126,7 @@
 				<div class="text-center">
 					<h3><%= m.headline_title%></h3>
 					<p><%= m.description%></p>
-					<a class="cta-btn" href="<%= m.action%>">Learn more</a>
+					<%= link_to "Learn more","#{m.action}", class:"cta-btn"%>
 				</div>
 			<% end %>
     	</div>
