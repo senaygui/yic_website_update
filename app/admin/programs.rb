@@ -1,6 +1,6 @@
 ActiveAdmin.register Program do
 
-  permit_params :program_name,:study_level,:modality,:overview,:program_description,:program_duration,:total_tuition,:monthly_tuition,:created_by,:last_updated_by, :photo
+  permit_params :program_name,:study_level,:modality,:overview,:program_description,:program_duration,:total_tuition,:monthly_tuition,:created_by,:last_updated_by, :photo, career_opportunities_attributes: [:title]
 
   index do
     selectable_column

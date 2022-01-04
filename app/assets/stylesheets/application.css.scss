@@ -1279,8 +1279,9 @@ section {
 
 .testimonials .testimonial-item .testimonial-img {
   width: 90px;
-  border-radius: 10px;
-  border: 6px solid #fff;
+  height: 90px;
+  border-radius:40px;
+  border: 6px sol id #fff;
   float: left;
   margin: 0 10px 0 0;
 }
@@ -2705,4 +2706,20 @@ section {
        -o-transform: skew(-20deg);
        
        border-right:4px solid red
+}
+
+#commenMain {
+  direction: rtl;
+  background-color: #000000;
+  color: wheat;
+  width: 100%;
+}
+.img {
+  float: right;
+  width: 550px;
+  height: 250px;
+  margin: 5px;
+  background: blue;
+  clip-path: polygon(50% 0, 100% 0, 100% 100%, 0% 100%);
+  shape-outside: polygon(50% 0, 100% 0, 100% 100%, 0% 100%);
 }

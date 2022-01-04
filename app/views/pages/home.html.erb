@@ -207,26 +207,36 @@
     		</div>
     	</div>
 
-		<section id="about" class="about section-bg">
-			<div class="container" data-aos="fade-up">
-				<div class="row no-gutters">
-				<% @comment.where(display_on_home_page: true).where(main_testimonial: true).each do |s|%>
-					<div class="col-xl-6 d-flex align-items-stretch mt-5 image-warp">
-						<%= image_tag(s.photo) if s.photo.attached?%>
-					</div>
-					<div class="content col-xl-6 d-flex align-items-stretch">
-					<div class="content">
-					<h3><%= s.fullname%></h3>
-					  <p>
-						<%= s.message.html_safe %>
-					  </p>
-					</div>
-					</div>
-
-				<%end%>
+		<div class="container mt-5 mb-4">
+			<div class="row">
+				<div class="col-lg-12 ml-5">
+					<div id="commenMain ">
+					<% @comment.where(display_on_home_page: true).where(main_testimonial: true).each do |s|%>
+						<div class="row ml-5">
+							<div class="col-lg-6">
+								<div class="container">
+									<h3><%= s.fullname%></h3>
+									<p>
+									<i class="bx bxs-quote-alt-left quote-icon-left"></i>
+										<%= s.message.html_safe%>
+									<i class="bx bxs-quote-alt-right quote-icon-right"></i>
+									</p>
+								</div>
+								
+							</div>
+							<div class="col-lg-5">
+								<div class="img">
+									<%= image_tag s.photo, class: "img-fluid"%>
+								</div>
+							</div>
+							
+						</div>
+					
+				<% end %>
 			</div>
+				</div>
 			</div>
-		</section>
+		</div>
 
     	<div class="container-fluid">
 
@@ -236,12 +246,12 @@
 						<% @comment.where(display_on_home_page: true).each do |c|%>
 							<div class="testimonial-wrap">
 								<div class="testimonial-item">
-								<img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+								<%= image_tag(c.photo, class: "testimonial-img") if c.photo.attached?%>
 								<h3><%= c.fullname%></h3>
-								<h4>Ceo &amp; Founder</h4>
+								<h4><%= c.subject.html_safe%></h4>
 								<p>
 								<i class="bx bxs-quote-alt-left quote-icon-left"></i>
-								<%= c.message%>
+								<%= c.message.html_safe%>
 								<i class="bx bxs-quote-alt-right quote-icon-right"></i>
 								</p>
 								</div>
@@ -253,7 +263,6 @@
 
     	</div>
     </section><!-- End Testimonials Section -->
-
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
