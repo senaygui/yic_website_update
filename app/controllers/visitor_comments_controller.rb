@@ -1,12 +1,10 @@
 class VisitorCommentsController < ApplicationController
     before_action :set_program, only: %i[ show edit update destroy ]
 
-    # GET /programs/new
     def new
       @program = VisitorComment.new
     end
 
-    # POST /programs or /programs.json
     def create
       @program = VisitorComment.new(program_params)
   
