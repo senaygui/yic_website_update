@@ -1,15 +1,22 @@
 class AlmunisController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_almuni, only: %i[ show edit update destroy ]
 
   # GET /almunis or /almunis.json
   def index
-    @search = Almuni.search(params[:q])
-    @almunis = @search.result.page(params[:page])
+    # params.permit(:q)
+    @request = Request.search(params[:q])
+    if params[:q][:track_number_eq].length!=0
+    @requests= @request.result
+    else
+      @requests=nil
+    end
     @marketing = MarketingSection.all
   end
 
   # GET /almunis/1 or /almunis/1.json
   def show
+    # @search = Almuni.search(params[:q])
   end
 
   # GET /almunis/new
@@ -67,5 +74,6 @@ class AlmunisController < ApplicationController
     # Only allow a list of trusted parameters through.
     def almuni_params
       params.fetch(:almuni, {})
+      # params.permit(:fullname,:sex,:phone_number,:modality,:study_level,:student_id,:graduation_date,:program_name, :photo, documents: [])
     end
 end

@@ -85,39 +85,39 @@
         <div class="tab-content">
           <div class="tab-pane active show" id="tab-1">
             <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0" data-aos="fade-up" data-aos-delay="100">
+              <div class="col-lg-12 order-2 order-lg-1 mt-3 mt-lg-0" data-aos="fade-up" data-aos-delay="100">
                 <%= @college.overview.html_safe%>
               </div>
-              <div class="col-lg-6 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
-                <img src="https://lms.heuc@edu.et/pluginfile.php/1/theme_moove/sliderimage1/1631710258/%28A%29---1500%20x%20700%20pixel%20for%20front%20page%20header%20image-01.png" alt="" class="img-fluid">
-              </div>
+              <%# <div class="col-lg-6 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
+                <%= image_tag "overview.jpeg", alt:"", class:"img-fluid" %>
+              <%# </div> %> 
             </div>
           </div>
           <div class="tab-pane" id="tab-2">
             <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+              <div class="col-lg-12 order-2 order-lg-1 mt-3 mt-lg-0">
                 <%= @college.history.html_safe%>
               </div>
-              <div class="col-lg-6 order-1 order-lg-2 text-center">
+              <%# <div class="col-lg-6 order-1 order-lg-2 text-center">
                 <img src="https://lms.heuc@edu.et/pluginfile.php/1/theme_moove/sliderimage1/1631710258/%28A%29---1500%20x%20700%20pixel%20for%20front%20page%20header%20image-01.png" alt="" class="img-fluid">
-              </div>
+              </div> %>
             </div>
           </div>
           <div class="tab-pane" id="tab-3">
             <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+              <div class="col-lg-12 order-2 order-lg-1 mt-3 mt-lg-0">
                 <%= @college.mission.html_safe%>
                 <br>
                 <%= @college.vision.html_safe%>
               </div>
-              <div class="col-lg-6 order-1 order-lg-2 text-center">
+              <%# <div class="col-lg-6 order-1 order-lg-2 text-center">
                 <img src="https://lms.heuc@edu.et/pluginfile.php/1/theme_moove/sliderimage1/1631710258/%28A%29---1500%20x%20700%20pixel%20for%20front%20page%20header%20image-01.png" alt="" class="img-fluid">
-              </div>
+              </div> %>
             </div>
           </div>
           <div class="tab-pane" id="tab-4">
             <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+              <div class="col-lg-12 order-2 order-lg-1 mt-3 mt-lg-0">
                 <%= @college.mandate.html_safe%>
             </div>
           </div>
@@ -434,7 +434,8 @@
           <% @comment.where(display_on_home_page: true).each do |c|%>
           <div class="testimonial-wrap">
             <div class="testimonial-item">
-              <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+              <%= image_tag(c.photo, class: "testimonial-img") if c.photo.attached?%>
+              <%# <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt=""> %>
               <h3><%= c.fullname.html_safe%></h3>
               <h4>Ceo &amp; Founder</h4>
               <p>
@@ -507,7 +508,7 @@
             <div class="info-box mt-4">
               <i class="bx bx-envelope"></i>
               <h3>Email Us</h3>
-              <p>info@heuc@edu.et<br>contact@heuc@edu.et</p>
+              <p>info@yic@edu.et<br>contact@yic@edu.et</p>
             </div>
           </div>
           <div class="col-md-6">

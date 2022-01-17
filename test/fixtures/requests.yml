@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name_of_organization: MyString
+  email: MyString
+  phone_number: MyString
+  student_fullname: MyString
+  approve: false
+
+two:
+  name_of_organization: MyString
+  email: MyString
+  phone_number: MyString
+  student_fullname: MyString
+  approve: false

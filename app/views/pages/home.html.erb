@@ -248,7 +248,7 @@
 			<div class="row">
 				<div class="col-lg-12 ml-5">
 					<div id="commenMain ">
-					<% @comment.where(display_on_home_page: true).where(main_testimonial: true).each do |s|%>
+					<% @comment.where(category: "testimonial").where(display_on_home_page: true).where(main_testimonial: true).each do |s|%>
 						<div class="row ml-5">
 							<div class="col-lg-6">
 								<div class="container">
@@ -263,9 +263,9 @@
 							</div>
 							<div class="col-lg-5">
 								<div class="img">
-									<%= image_tag s.photo, class: "img-fluid"%>
+									<%= image_tag(s.photo, class: "img-fluid") if s.photo.attached?%>
 								</div>
-							</div>
+							</div> 
 							
 						</div>
 					
@@ -280,7 +280,7 @@
     		<div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
     			<div class="col-xl-10">
     				<div class="owl-carousel testimonials-carousel">
-						<% @comment.where(display_on_home_page: true).each do |c|%>
+						<% @comment.where(category: "testimonial").where(display_on_home_page: true).where(main_testimonial: false).each do |c|%>
 							<div class="testimonial-wrap">
 								<div class="testimonial-item">
 								<%= image_tag(c.photo, class: "testimonial-img") if c.photo.attached?%>
@@ -327,7 +327,7 @@
     						<div class="info-box mt-4">
     							<i class="bx bx-envelope"></i>
     							<h3>Email Us</h3>
-    							<p>info@heuc@edu.et<br>contact@heuc@edu.et</p>
+    							<p>info@yic@edu.et<br>contact@yic@edu.et</p>
     						</div>
     					</div>
     					<div class="col-md-6">
@@ -349,7 +349,7 @@
     							<div class="validate"></div>
     						</div>
     						<div class="col form-group">
-								<%= f.input :category, class: "form-control"%>
+								<%= f.input :category, collection: ["testimonial", "comment", "review"], class: "form-control"%>
     							<div class="validate"></div>
     						</div>
     					</div>

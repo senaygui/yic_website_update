@@ -38,7 +38,7 @@ menu label: "Comment"
     f.inputs "Visitor Comments" do
       
       f.input :fullname
-      f.input :category
+      f.input :category,as: :select, :collection => ["comment", "testimonial", "review"]
       f.input :subject    
       f.input :email
       f.input :phone_number

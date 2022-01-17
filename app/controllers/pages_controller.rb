@@ -3,13 +3,14 @@ class PagesController < ApplicationController
     @college = College.last
     @comment = VisitorComment.all
     @marketing = MarketingSection.all
-    @news = News.all
+    @news = News.order('created_at DESC').first(6)
     @programs = Program.all
     @admissions = Admission.all
   end
 
   def contact
-    @branches = Branch.all
+    @branches=Branch.all
+    @faq= FrequentlyAskedQuestion.all
   end
 
   def about
@@ -19,11 +20,9 @@ class PagesController < ApplicationController
     @accreditations = Accreditation.all
     @comment = VisitorComment.all
     @marketing = MarketingSection.all
-    @news = News.order('created_at DESC').last(6)
-    @faq = FrequentlyAskedQuestion.all
+    @news = News.order('created_at DESC').first(6)
+    @faq= FrequentlyAskedQuestion.all
   end
-
-
 
   def accreditation
   	@accreditations = Accreditation.all
