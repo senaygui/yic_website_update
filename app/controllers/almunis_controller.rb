@@ -6,7 +6,7 @@ class AlmunisController < ApplicationController
   def index
     # params.permit(:q)
     @request = Request.search(params[:q])
-    if params[:q][:track_number_eq].length!=0
+    if params[:q]&&params[:q][:track_number_eq].length!=0
     @requests= @request.result
     else
       @requests=nil

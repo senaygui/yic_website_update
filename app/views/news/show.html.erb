@@ -46,7 +46,7 @@
               <div class="sidebar-item">
               <%@last_five_news.each do |news|%>
                 <div class="post-item clearfix">
-                  <h4><%= link_to news.news_title,news_path(news.id)%></h4>
+                  <h4><%= link_to news.news_title,news_path(news)%></h4>
                 </div>
               <%end%>
               </div>
