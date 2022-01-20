@@ -1,0 +1,52 @@
+<main class="my-5">
+<div class="container">
+  <!--Section: Content-->
+  <section class="text-center">
+
+    <div class="row">
+      <div class="col-lg-6 mb-4">
+        <h1 class="text-justify font-weight-bold text-md-start text pt-md-5 my-md-3"> <%= @how_tos.title %> </h1>
+        <p class="text-justify text"><%= @how_tos.description%></p>
+        <button type="button" class="btn btn-primary text-capitalize v-btn v-btn--contained v-btn--tile theme--light v-size--large primary darken-1"><span class="v-btn__content">Apply Now</span></button>
+      </div>
+
+      <div class="col-lg-6 mb-4">
+        <div class="card">
+          <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+            <img src="https://mdbootstrap.com/img/new/standard/nature/023.jpg" class="img-fluid" />
+            <a href="#!">
+              <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <% @steps.each_with_index do |step,i|%>
+        <div class="row mt-5">
+        <div class="col-lg-6 mb-4 mt-5">
+        <div class=" text-start flex mt-5 xs12 sm12 md4 lg4 pa-2">
+            <p class="text-justify title"> Step <%= i+1 %> </p>
+            <h1 class="text-justify font-weight-bold card-title py-2"> <%= step.step_name %> </h1>
+            <p class="text-justify body-1 py-2"> <%= step.step_description %></p></div>
+        </div>
+
+        <div class="col-lg-6 mb-4 mt-5">
+            <div class="card">
+            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                <img src="https://mdbootstrap.com/img/new/standard/nature/022.jpg" class="img-fluid" />
+                <a href="#!">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                </a>
+            </div>
+            </div>
+        </div>
+        </div>
+    <% end %>
+
+    <%= link_to 'How To Apply', how_to_path(3), class:"btn btn-primary float-left" %>
+
+  </section>
+  <!--Section: Content-->
+</div>
+</main>
