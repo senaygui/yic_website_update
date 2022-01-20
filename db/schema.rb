@@ -117,10 +117,10 @@ ActiveRecord::Schema.define(version: 2022_01_17_105725) do
     t.integer "phone_number"
     t.integer "second_phone_number"
     t.string "email"
-    t.bigint "college_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "map"
+    t.bigint "college_id"
     t.index ["college_id"], name: "index_branches_on_college_id"
   end
 
@@ -165,9 +165,16 @@ ActiveRecord::Schema.define(version: 2022_01_17_105725) do
     t.string "last_updated_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "goal"
     t.string "video_link"
     t.bigint "college_id"
     t.index ["college_id"], name: "index_colleges_on_college_id"
+  end
+
+  create_table "facuilties", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "frequently_asked_questions", force: :cascade do |t|
@@ -230,8 +237,10 @@ ActiveRecord::Schema.define(version: 2022_01_17_105725) do
     t.string "last_updated_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "facuilty_id"
     t.string "slug"
     t.float "credit_hour"
+    t.index ["facuilty_id"], name: "index_programs_on_facuilty_id"
     t.index ["slug"], name: "index_programs_on_slug", unique: true
   end
 
@@ -312,7 +321,9 @@ ActiveRecord::Schema.define(version: 2022_01_17_105725) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "branches", "colleges"
   add_foreign_key "colleges", "colleges"
+  add_foreign_key "programs", "facuilties"
   add_foreign_key "requests", "almunis"
   add_foreign_key "steps", "how_tos"
 end

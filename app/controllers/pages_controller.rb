@@ -20,7 +20,7 @@ class PagesController < ApplicationController
     @accreditations = Accreditation.all
     @comment = VisitorComment.all
     @marketing = MarketingSection.all
-    @news = News.order('created_at DESC').first(6)
+    @news = News.where(publish: true).order('created_at DESC').first(6)
     @faq= FrequentlyAskedQuestion.all
   end
 
