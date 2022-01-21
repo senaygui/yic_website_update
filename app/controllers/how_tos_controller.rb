@@ -4,7 +4,7 @@ class HowTosController < ApplicationController
     end
 
     def show
-        @how_tos = HowTo.find(params[:id])
-        @steps = Step.where("how_to_id = ?", params[:id])
+        @how_tos = HowTo.where("title = ?", params[:id]).first
+        @steps = Step.where("how_to_id = ?", @how_tos.id)
     end
 end
