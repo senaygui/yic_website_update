@@ -6,7 +6,7 @@ class RequestsController < ApplicationController
       respond_to do |format|
         if @request.save
             # flash[:notice]= "Comment was successfully created.your track number is #{@request.track_number}"
-          format.html { redirect_to almunis_path, notice: "Comment was successfully created.your track number is #{@request.track_number}" }
+          format.html { redirect_to almunis_path, notice: "Request was successfully created.your Request Code is #{@request.track_number}" }
           format.json { render :show, status: :created, location: @request }
         else
           format.html { render :new, status: :unprocessable_entity }
