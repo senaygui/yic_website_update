@@ -41,18 +41,18 @@
           </div>
 
           <div class="col-lg-4">
-            <div class="sidebar">
-              <h3 class="sidebar-title">Recent Events</h3>
-              <div class="sidebar-item">
+          <section id="course-details" class="course-details">
+            <div class="container" data-aos="fade-up">
+              <div class="course-info d-flex justify-content-between align-items-center">
+                  <h3>Recent Events</h3>
+                </div>
               <%@last_five_news.each do |news|%>
-                <div class="post-item clearfix">
+                <div class="course-info d-flex justify-content-between align-items-center">
                   <h4><%= link_to news.news_title,news_path(news)%></h4>
                 </div>
-              <%end%>
-              </div>
-
+              <%end%>              
             </div>
-
+          </section>
           </div>
 
 

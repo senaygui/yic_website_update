@@ -775,7 +775,7 @@
 
 								<h3 class="post-title"><%= pro.program_name%></h3>
 								<span class="post-date"><strong>modality:- <%= pro.modality%> </strong></span>
-								<span class="post-date mb-4"><%= truncate(pro.overview.html_safe, :length=>256)%> .</span>
+								<span class="post-date mb-4"><%= pro.overview.truncate(256).html_safe%> .</span>
 								<%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
 							</div>
 						</div>
