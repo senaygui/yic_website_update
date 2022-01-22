@@ -80,7 +80,7 @@
 							<div class="post-img"><%= image_tag pro.photo, class:"img-fluid"%></div>
 							<h3 class="post-title"><%= pro.program_name.html_safe%></h3>
 							<span class="post-date"><strong>modality:-</strong><%=  pro.modality.html_safe%></span>
-							<p class="post-date mb-4" style="text-align: justify;"><%=truncate(pro.overview.html_safe, :length=>256)%></span>
+							<p class="post-date mb-4" style="text-align: justify;"><%=pro.overview.truncate(256).html_safe%></span>
 							<%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
 						</div>
    					</div>
@@ -107,7 +107,7 @@
 							<div class="post-img"><%= image_tag pro.photo, class:"img-fluid"%></div>
 							<h3 class="post-title"><%= pro.program_name.html_safe%></h3>
 							<span class="post-date"><strong>modality:-</strong><%=  pro.modality.html_safe%></span>
-							<span class="post-date mb-4" style="text-align: justify;"><%= truncate(pro.overview.html_safe, :length=>256)%></span>
+							<span class="post-date mb-4" style="text-align: justify;"><%= pro.overview.truncate(256).html_safe%></span>
 							<%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
 						</div>
    					</div>
@@ -137,7 +137,7 @@
 							<div class="post-img"><%= image_tag pro.photo, class:"img-fluid"%></div>
 							<h3 class="post-title"><%= pro.program_name.html_safe%></h3>
 							<span class="post-date"><strong>modality:-</strong><%=  pro.modality.html_safe%></span>
-							<p class="post-date mb-4" style="text-align: justify;"><%=truncate(pro.overview.html_safe, :length=>256)%></span>
+							<p class="post-date mb-4" style="text-align: justify;"><%=pro.overview.truncate(256).html_safe%></span>
 							<%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
 						</div>
    					</div>
@@ -211,7 +211,7 @@
 						<div class="post-img"><%= image_tag n.photo %></div>
 						<span class="post-date"><%= Date.parse(n.created_at.to_s).strftime('%A')%>, <%= Date.parse(n.created_at.to_s).to_formatted_s(:long)%></span>
 						<h3 class="post-title"><%= n.news_title.html_safe %></h3>
-						<p style="text-align: justify;"><%=truncate(n.overview.html_safe, :length=>256)%></p>
+						<p style="text-align: justify;"><%=n.overview.truncate(256).html_safe%></p>
 						<%=link_to news_path(n), class:"readmore stretched-link mt-auto" do%>
 							<span>Read More</span><i class="bi bi-arrow-right"></i>
 						<%end%></div>
