@@ -398,14 +398,20 @@
                     <p class="body-1 py-2">
                       <%= step.step_description.html_safe %>
                     </p>
-                    <div class="text-left my-2">
-                      <%= link_to '<button
-                        type="button"
-                        class="text-capitalize v-btn v-btn--contained v-btn--tile theme--light v-size--default primary"
-                      >	
-                        <span class="v-btn__content"> How to Learn</span>
-                      </button>'.html_safe, how_to_path("how_to_learn") %>
-                    </div>
+                    <% if @how_tos.title == "how_to_learn"%>
+                      <div class="text-left my-2">
+                        <%= link_to "Apply now","https://sis.yic.edu.et/students/sign_up", class: "btn btn-primary"%>
+                      </div>
+                    <% else %>
+                      <div class="text-left my-2">
+                        <%= link_to '<button
+                          type="button"
+                          class="text-capitalize v-btn v-btn--contained v-btn--tile theme--light v-size--default primary"
+                        >	
+                          <span class="v-btn__content"> How to Learn</span>
+                        </button>'.html_safe, how_to_path("how_to_learn") %>
+                      </div>
+                    <% end %>
                   </div>
                   <div class="flex xs12 sm12 md2 lg2"></div>
                   <div class="flex xs12 sm12 md4 lg4 pa-2">

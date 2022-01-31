@@ -24,7 +24,7 @@
               <%= search_form_for(@request, html: { class: "input-group form-sm form-1 pl-0" }, url: almunis_path) do |f| %>
                <%= f.search_field :track_number_eq, class: "form-control my-0 py-1 rounded",placeholder: "Search by Request Code "   %>
                       <div class="input-group-prepend bg-primary">
-                        <%= f.submit "Search", class: "icofont-search btn btn-primary" %>
+                        <%= f.submit "Search", class: "icofont-search btn btn-primary text-light" %>
                         </div>
                       <%end%>
                       </div>
@@ -106,7 +106,7 @@
     						<div class="error-message"></div>
     						<div class="sent-message">Your request has been sent. Thank you!</div>
     					</div>
-						<%= f.submit 'Submit', class: 'btn btn-primary'%>
+						<%= f.submit 'Submit', class: 'btn btn-primary  text-light'%>
     					<% end %>
     			</div>
     		</div>

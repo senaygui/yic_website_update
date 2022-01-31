@@ -53,26 +53,33 @@
     </section> <!-- End Marketing -->
     
     <section id="recent-blog-posts" class="recent-blog-posts">
-        <div class="row">
 
-          <%Program.where(study_level: 'graduate').each do |pro|%>
-	    			<div class="col-lg-3" style="padding-right: 5px;">
-	   					<div class="post-box bg-white">
-	   						<div class="post-img"><%= image_tag pro.photo, class: "img-fluid"%></div>
+    <div class="container aos-init aos-animate" data-aos="fade-up">
 
-	   						<h3 class="post-title"><%= pro.program_name.html_safe%></h3>
-	   						<span class="post-date"><strong>modality:- <%= pro.modality%> </strong></span>
-	   						<span class="post-date mb-4"><%= pro.overview.truncate(256).html_safe%> .</span>
-	   						<%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
-	   					</div>
-	   				</div>
-	    		<%end%>
+      <header class="section-header">
+        <!-- <h2>Programs</h2> -->
+        <p>Our Masters Programs</p>
+      </header>
 
-        </div>
+      <div class="row">
+        <%Program.where(study_level: 'graduate').each do |pro|%>
+          <div class="col-lg-3 mt-3" style="padding-right: 5px;">
+             <div class="post-box bg-white">
+               <div class="post-img"><%= image_tag pro.photo, class: "img-fluid"%></div>
 
+               <h3 class="post-title"><%= pro.program_name.html_safe%></h3>
+               <span class="post-date"><strong>modality:- <%= pro.modality.html_safe%> </strong></span>
+               <span class="post-date mb-4" style="text-align: justify;"><%= pro.overview.truncate(256).html_safe%> .</span>
+               <%= link_to "Read More", program_path(pro), class: "readmore stretched-link mt-auto"%>
+             </div>
+           </div>
+        <%end%>
       </div>
 
-    </section>
+    </div>
+
+  </section>
+  
     
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
