@@ -14,7 +14,7 @@ ActiveAdmin.register HowTo do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  permit_params :title, :description, :video_link,:image, steps_attributes: [:step_name, :step_description, :step_video_link, :image]
+  permit_params :title, :description, :video_link,:image, steps_attributes: [:id, :step_name, :step_description, :step_video_link, :image]
 
   index do
     selectable_column
