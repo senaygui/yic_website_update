@@ -29,7 +29,7 @@
               <div class="entry-meta">
                 <ul>
                   <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="blog-single.html"><%= @news.published_by%></a></li>
-                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01"><%= @news.created_at%></time></a></li>               
+                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <%= Date.parse(@news.created_at.to_s).strftime('%A')%>, <%= Date.parse(@news.created_at.to_s).to_formatted_s(:long)%></li>               
                 </ul>
               </div>
               <div class="entry-content">
