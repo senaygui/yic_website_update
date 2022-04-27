@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @branch.location %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @branch.name %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @branch.phone_number %>
+</p>
+
+<p>
+  <strong>Second phone number:</strong>
+  <%= @branch.second_phone_number %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @branch.email %>
+</p>
+
+<%= link_to 'Edit', edit_branch_path(@branch) %> |
+<%= link_to 'Back', branches_path %>

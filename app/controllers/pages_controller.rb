@@ -9,6 +9,7 @@ class PagesController < ApplicationController
   end
 
   def contact
+    @branches = Branch.all
   end
 
   def about
@@ -18,8 +19,11 @@ class PagesController < ApplicationController
     @accreditations = Accreditation.all
     @comment = VisitorComment.all
     @marketing = MarketingSection.all
-    @news = News.all
+    @news = News.order('created_at DESC').last(6)
+    @faq = FrequentlyAskedQuestion.all
   end
+
+
 
   def accreditation
   	@accreditations = Accreditation.all

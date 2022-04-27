@@ -27,6 +27,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-rails'
+# gem 'hirb'
 gem 'devise', '~> 4.8'
 gem 'activeadmin', '~> 2.9'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
@@ -50,8 +51,20 @@ gem "barby", "~> 0.6.8"
 gem "active_admin_import"
 gem 'active_admin_scoped_collection_actions'
 gem 'ckeditor', '~> 4.3.0' 
+
+
+gem 'rack-google-analytics'
+
+gem 'google-api-client'  # v. 0.11
+gem 'omniauth-google-oauth2' # v. 0.4.1 with Devise
+
+
+# In a model or controller somewhere...
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
+
+gem 'kaminari', '~> 1.2', '>= 1.2.1'
+gem 'friendly_id', '~> 5.4', '>= 5.4.2'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

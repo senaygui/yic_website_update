@@ -9,7 +9,7 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//
+//=require('bootstrap-icons/font/bootstrap-icons.css')
 //= require jquery3
 //= require popper
 //= require bootstrap
@@ -23,6 +23,7 @@
 //= require isotope.pkgd.min.js
 //= require venobox.min.js
 //= require aos.js
+
 
 
 
@@ -72,29 +73,61 @@ $(document).on('turbolinks:load', function(){
       }
     }
   });
+  $(document).ready(function () {
+    console.log('asds')
+    // $('.nav-menu li').click(function(e){
+    //       e.preventDefault(); // This does not allow to load the relative page to the nav item.
+  
+    //       $('.nav-menu li').removeClass('active');
+    //       $(this).addClass('active');
+    // });
+    var pathname = window.location.pathname;
+    if (pathname == '/')
+        $('.navbar-brand').css("color", "rgb(32, 42, 62)", "background-color", "#D3212D");
+    else
+          $('.nav-menu li').children().each((index,$ele)=>{
+          //  console.log(pathname.toString().toLowerCase().includes($ele.innerText.toString().toLowerCase()))
+            if($ele.innerText.toString().toLowerCase().includes(pathname.slice(1).toString().toLowerCase()) || pathname.toString().toLowerCase().includes($ele.innerText.toString().toLowerCase()) ){
+
+              $('.nav-menu li').removeClass('active');
+              if($ele.innerText.toString().toLowerCase().includes('admission')){
+                console.log("asdsd")
+
+                $ele.parentNode.classList.add('active');
+                console.log($ele.parentNode.classList)
+           
+             }
+             $ele.parentNode.classList.add('active')
+           
+            
+            }
+              // $ele.addClass('active');
+          })
+          $('#nav > li > a[href="' + pathname + '"]').parent().addClass('active');
+  });
 
   // Navigation active state on scroll
-  var nav_sections = $('section');
-  var main_nav = $('.nav-menu, .mobile-nav');
+  // var nav_sections = $('section');
+  // var main_nav = $('.nav-menu, .mobile-nav');
 
-  $(window).on('scroll', function() {
-    var cur_pos = $(this).scrollTop() + 200;
+  // $(window).on('scroll', function() {
+  //   var cur_pos = $(this).scrollTop() + 200;
 
-    nav_sections.each(function() {
-      var top = $(this).offset().top,
-        bottom = top + $(this).outerHeight();
+  //   nav_sections.each(function() {
+  //     var top = $(this).offset().top,
+  //       bottom = top + $(this).outerHeight();
 
-      if (cur_pos >= top && cur_pos <= bottom) {
-        if (cur_pos <= bottom) {
-          main_nav.find('li').removeClass('active');
-        }
-        main_nav.find('a[href="#' + $(this).attr('id') + '"]').parent('li').addClass('active');
-      }
-      if (cur_pos < 300) {
-        $(".nav-menu ul:first li:first, .mobile-menu ul:first li:first").addClass('active');
-      }
-    });
-  });
+  //     if (cur_pos >= top && cur_pos <= bottom) {
+  //       if (cur_pos <= bottom) {
+  //         main_nav.find('li').removeClass('active');
+  //       }
+  //       main_nav.find('a[href="#' + $(this).attr('id') + '"]').parent('li').addClass('active');
+  //     }
+  //     if (cur_pos < 300) {
+  //       $(".nav-menu ul:first li:first, .mobile-menu ul:first li:first").addClass('active');
+  //     }
+  //   });
+  // });
 
   // Mobile Navigation
   if ($('.nav-menu').length) {

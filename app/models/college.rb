@@ -17,4 +17,6 @@ class College < ApplicationRecord
   ##associations
   has_one :section_headline, dependent: :destroy
   accepts_nested_attributes_for :section_headline
+  has_many :branches
+  accepts_nested_attributes_for :branches, :allow_destroy => true
 end

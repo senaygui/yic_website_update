@@ -4,7 +4,7 @@
       <div class="container">
 
         <ol>
-          <li><a href="index.html">Home</a></li>
+          <li><%=link_to "Home","/"%></li>
           <li>Almunis Directory</li>
         </ol>
         <h2>Almunis Directory</h2>
@@ -41,9 +41,9 @@
               <div class="post-img"><%= link_to image_tag(almuni.documents[0],size:"280x800", class: "img-fluid"), almuni.documents[0] %></div>
               
               <h3 class="post-title"><%= almuni.fullname%></h3>
-              <span class="post-date"><strong>Modality:- <%= almuni.modality%> </strong></span>
-              <span class="post-date"><strong>Study level:- <%= almuni.study_level%> </strong></span>
-              <span class="post-date"><strong>Program:- <%= almuni.program_name%> </strong></span>
+              <span class="post-date"><strong>Modality:- <%= almuni.modality.html_safe%> </strong></span>
+              <span class="post-date"><strong>Study level:- <%= almuni.study_level.html_safe%> </strong></span>
+              <span class="post-date"><strong>Program:- <%= almuni.program_name.html_safe%> </strong></span>
               <span class="post-date"><strong>Graduation Date:- <%= almuni.graduation_date.strftime("%b %d, %Y")%> </strong></span>
             <%= image_tag(almuni.qr_code, size: "50x50") if almuni.qr_code.attached? %>
             
@@ -61,9 +61,10 @@
       <div class="container aos-init aos-animate " data-aos="zoom-in">
         <% @marketing.where(page_to_display: 'almunis').each do |m|%>
           <div class="text-center">
-            <h3><%= m.headline_title%></h3>
-            <p><%= m.description%></p>
-            <a class="cta-btn" href="<%= m.action%>">Learn more</a>
+            <h3><%= m.headline_title.html_safe%></h3>
+            <p><%= m.description.html_safe%></p>
+
+            <%= link_to "Learn more", "#{m.action}", class:"cta-btn"%>
           </div>
         <% end %>
       </div>

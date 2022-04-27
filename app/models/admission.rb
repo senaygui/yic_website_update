@@ -6,4 +6,7 @@ class Admission < ApplicationRecord
 		validates :payment_process, :presence => true 
 		validates :study_level, :presence => true
 		validates :modality, :presence => true
+	
+	extend FriendlyId
+    friendly_id :admission_name
 end

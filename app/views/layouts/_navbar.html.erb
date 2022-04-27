@@ -1,31 +1,38 @@
 <header id="header" class="fixed-top">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
   <div class="container-fluid">
     <div class="row justify-content-center">
       <div class="col-xl-12 d-flex align-items-center">
-        <h1 class="logo mr-auto"><a href="index.html"><%=image_tag "logo2.png"%></a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt=""></a>-->
+       <h1 class="logo mr-auto">
+            <%= link_to "/" do%>
+              <%=image_tag "logo2.png"%>
+            <%end%>
+       </h1>
+         <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <%= link_to <%=image_tag "assets/img/logo.png" alt=""%>, "index.html", class="logo mr-auto"%>-->
 
         <nav class="nav-menu d-none d-lg-block mr-lg-5">
           <ul>
             <li class="active"><%= link_to "Home", root_path%></li>
-            <!-- <li><a href="#about">Admission</a></li> -->
+            <!-- <li><%= link_to "Admission", "#about"%></li> -->
             <li class="drop-down"><%= link_to "Admission", "#"%>
               <ul>
                 <% Admission.all.each do |admission|%>
-                  <li><%= link_to("#{admission.admission_name}", {controller: "admissions", action: "show", id: admission.id} )%></li>
-                  <!-- <li><a href="regular_masters.html">Regular Masters</a></li>
-                  <li><a href="#">Online Masters</a></li>
-                  <li><a href="#">Extension Degree </a></li>
-                  <li><a href="#">Distance Degree</a></li>
-                  <li><a href="#">TBVT</a></li> -->
+                  <li><%= link_to("#{admission.admission_name}", {controller: "admissions", action: "show", id: admission} )%></li>
+                  <!-- <li><%= link_to "Regular Masters", "regular_masters.html"%></li>
+                  <li><%= link_to "Online Masters","#"%></li>
+                  <li><%= link_to "Extension Degree", "#" %></li>
+                  <li><%= link_to "Distance Degree", "#"%></li>
+                  <li><%= link_to "TBVT", "#"%></li> -->
                 <%end%>
               </ul>
             </li>
             <li><%= link_to "News&Event", news_index_path%></li>
             <li><%= link_to "Accreditation", accreditation_path%></li>
             <li><%= link_to "About", about_path%> </li>
-            <li><%= link_to "Progams", programs_path%></li>
+            <li><%= link_to "office", staffs_path%></li>
+            <li><%= link_to "Programs", programs_path%></li>
             <!-- <li class="drop-down"><a href="">Offices</a>
               <ul>
                 <li><a href="">office 1 </a></li>
@@ -33,23 +40,16 @@
               </ul>
             </li> -->
             <li><%= link_to "Almunis", almunis_path%></li>
-              <!-- <li><a href="#services">Offices</a></li>
-              <li><a href="#services">Services</a></li> 
-              <li><a href="#services">Research</a></li> --> 
               
               <li><%= link_to "Contact us", contact_path%></li>
-              <!-- <li><a href="#team">Team</a></li>
-              <li><a href="blog.html">Blog</a></li>
-              
-              <li><a href="#contact">Contact</a></li> -->
-            </ul>
-          </nav><!-- .nav-menu -->
+            
+          </ul>
+        </nav><!-- .nav-menu -->
 
-          <!-- <a href="#about" class="get-started-btn scrollto">Apply now</a> -->
-          <%= link_to "Apply now","https://sis.yic.edu.et/students/sign_up", class: "get-started-btn scrollto"%>
-        </div>
+        <%= link_to "Apply now","https://sis.yic.edu.et/students/sign_up", class: "get-started-btn scrollto"%>
       </div>
-
     </div>
-  </header><!-- End Header -->
-  <div class="clear-header"></div>
+
+  </div>
+</header><!-- End Header -->
+<div class="clear-header"></div>

@@ -5,12 +5,14 @@ class ProgramsController < ApplicationController
   def index
     @programs = Program.all
     @marketing = MarketingSection.all
+  
   end
 
   # GET /programs/1 or /programs/1.json
   def show
     @programs = Program.find(params[:id])
     @marketing = MarketingSection.all
+    @careerOpportunity = CareerOpportunity.all
   end
 
   # GET /programs/new

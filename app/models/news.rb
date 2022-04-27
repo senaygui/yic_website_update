@@ -4,4 +4,7 @@ class News < ApplicationRecord
 		validates :overview, :presence => true
 
 		has_one_attached :photo
+
+	extend FriendlyId
+    friendly_id :news_title
 end

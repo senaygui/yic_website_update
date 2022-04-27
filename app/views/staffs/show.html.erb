@@ -1,4 +1,62 @@
-<p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_staff_path(@staff) %> |
-<%= link_to 'Back', staffs_path %>
+  <main id="main">
+    <section class="breadcrumbs">
+  		<div class="container">
+
+        <ol>
+          <li><%=link_to "Home","/"%></li>
+          <li>Office</li>
+        </ol>
+        <h2>Office</h2>
+
+  		</div>
+  	</section>
+
+    <section id="blog" class="blog">
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+        <div class="col-lg-8 entries">
+          <%# <% @news do |n|%>
+            <article class="entry">
+            <div><%= image_tag @staff.photo, class: "img-fluid" %></div>
+              <div class="entry-content">
+                <p style="text-align: justify;"><%= @staff.message.html_safe%></p>  
+              </div>
+            </article>
+          <%# <% end %> 
+            
+          </div>
+        <div class="col-lg-4">
+            <div class="sidebar">
+              <div class="sidebar-item recent-posts">
+                    <h2 class="entry-title">
+                <div style= "color :#0975b8"><%= @staff.fullname.html_safe%></div>
+              </h2>
+			        <br>
+              <div class="entry-meta">
+                <ul>
+                  <i class="icofont-user"></i> <a href="#" class="ml-3"><%= @staff.office_name.upcase%></a>
+                  <li class="d-flex "><i class="icofont-wall-clock mr-3 mb-3"></i><%=@staff.major_responsibilities.html_safe%></li>
+                  <li class="d-flex "><i class="icofont-wall-clock mr-3 mb-3"></i><%=@staff.offices_that_answerable_to.html_safe%></li>
+                  <li class="d-flex "><i class="icofont-bullseye mr-3 mb-3"></i><%=@staff.office_address.html_safe%></li>
+                  <li class="d-flex "><i class="icofont-phone mr-3 mb-3"></i><%=@staff.office_phone_number.html_safe%></li> 
+                  <li class="d-flex "><i class="icofont-email mr-3 mb-3"></i><%=@staff.email.html_safe%></li>               
+                </ul>
+              </div>
+              </div>
+
+            </div>
+
+          </div>
+          
+
+          
+
+
+        </div>
+
+      </div>
+    </section>
+    </main>
+
+

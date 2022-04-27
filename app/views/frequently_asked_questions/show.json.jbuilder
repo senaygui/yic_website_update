@@ -1,0 +1,1 @@
+json.partial! "frequently_asked_questions/frequently_asked_question", frequently_asked_question: @frequently_asked_question

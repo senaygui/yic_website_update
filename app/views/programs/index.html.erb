@@ -3,7 +3,7 @@
       <div class="container">
 
         <ol>
-          <li><a href="index.html">Home</a></li>
+          <li><%=link_to "Home","/"%></li>
           <li>Programs</li>
         </ol>
         <h2>Programs</h2>
@@ -22,14 +22,14 @@
 
         <div class="row">
           <%Program.where(study_level: 'undergraduate').each do |pro|%>
-	    			<div class="col-lg-3" style="padding-right: 5px;">
+	    			<div class="col-lg-3 mt-3" style="padding-right: 5px;">
 	   					<div class="post-box bg-white">
 	   						<div class="post-img"><%= image_tag pro.photo, class: "img-fluid"%></div>
 
-	   						<h3 class="post-title"><%= pro.program_name%></h3>
-	   						<span class="post-date"><strong>modality:- <%= pro.modality%> </strong></span>
-	   						<span class="post-date mb-4"><%= pro.overview.html_safe%> .</span>
-	   						<%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
+	   						<h3 class="post-title"><%= pro.program_name.html_safe%></h3>
+	   						<span class="post-date"><strong>modality:- <%= pro.modality.html_safe%> </strong></span>
+	   						<span class="post-date mb-4" style="text-align: justify;"><%= truncate(pro.overview.html_safe, :length=>256)%> .</span>
+	   						<%= link_to "Read More", program_path(pro), class: "readmore stretched-link mt-auto"%>
 	   					</div>
 	   				</div>
 	    		<%end%>
@@ -44,23 +44,15 @@
       <div class="container aos-init aos-animate " data-aos="zoom-in">
         <% @marketing.where(page_to_display: 'programs').each do |m|%>
           <div class="text-center">
-            <h3><%= m.headline_title%></h3>
-            <p><%= m.description%></p>
-            <a class="cta-btn" href="<%= m.action%>">Learn more</a>
+            <h3><%= m.headline_title.html_safe%></h3>
+            <p><%= m.description.html_safe%></p>
+            <%= link_to "Learn more", "#{m.action}", class:"cta-btn"%>
           </div>
         <% end %>
       </div>
     </section> <!-- End Marketing -->
     
     <section id="recent-blog-posts" class="recent-blog-posts">
-
-      <div class="container aos-init aos-animate" data-aos="fade-up">
-
-        <header class="section-header">
-          <!-- <h2>Programs</h2> -->
-          <p>Our Masters Programs</p>
-        </header>
-
         <div class="row">
 
           <%Program.where(study_level: 'graduate').each do |pro|%>
@@ -68,9 +60,9 @@
 	   					<div class="post-box bg-white">
 	   						<div class="post-img"><%= image_tag pro.photo, class: "img-fluid"%></div>
 
-	   						<h3 class="post-title"><%= pro.program_name%></h3>
+	   						<h3 class="post-title"><%= pro.program_name.html_safe%></h3>
 	   						<span class="post-date"><strong>modality:- <%= pro.modality%> </strong></span>
-	   						<span class="post-date mb-4"><%= pro.overview.html_safe%> .</span>
+	   						<span class="post-date mb-4"><%= truncate((pro.overview.html_safe) , :length=>256)%> .</span>
 	   						<%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
 	   					</div>
 	   				</div>
@@ -107,7 +99,7 @@
                 <div class="info-box mt-4">
                   <i class="bx bx-envelope"></i>
                   <h3>Email Us</h3>
-                  <p>info@yic.edu.et<br>contact@yic.edu.et</p>
+                  <p>info@heuc@edu.et<br>contact@heuc@edu.et</p>
                 </div>
               </div>
               <div class="col-md-6">

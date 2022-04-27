@@ -3,7 +3,7 @@
   		<div class="container">
 
   			<ol>
-  				<li><a href="index.html">Home</a></li>
+  				<li><%=link_to "Home", "index.html"%></a></li>
   				<li>Accreditations</li>
   			</ol>
   			<h2>Our Accreditations</h2>
@@ -33,7 +33,7 @@
 
   			<div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
           <% @accreditations.each do |a|%>
-    				<div class="col-lg-4 col-md-6 portfolio-item <%= a.modality%>">
+    				<div class="col-lg-4 col-md-6 portfolio-item <%= a.modality.html_safe%>">
     					<div class="portfolio-wrap">
 							<% if a.accreditation_documents[0].blank? %>
 								<div class="portfolio-info">
@@ -42,10 +42,10 @@
 							<% else %>
 								<%= image_tag a.accreditation_documents[0], class: "img-fluid"%>
 								<div class="portfolio-info">
-									<h4><%= a.accreditation_title%></h4>
-									<p><%= a.modality%></p>
+									<h4><%= a.accreditation_title.html_safe%></h4>
+									<p><%= a.modality.html_safe%></p>
 									<div class="portfolio-links">
-										<%= link_to '<i class="bx bx-plus"></i>'.html_safe, a.accreditation_documents[0], {'data-gall': "portfolioGallery",class: "venobox", title: a.accreditation_title}%>
+										<%= link_to '<i class="bx bx-plus"></i>'.html_safe, a.accreditation_documents[0], {'data-gall': "portfolioGallery",class: "venobox", title: a.accreditation_title.html_safe}%>
 									</div>
 								</div>
 							<% end %>
@@ -174,9 +174,9 @@
   		<div class="container aos-init aos-animate " data-aos="zoom-in">
 			<% @marketing.where(page_to_display: 'accreditation').each do |m|%>
 				<div class="text-center">
-					<h3><%= m.headline_title%></h3>
-					<p><%= m.description%></p>
-					<a class="cta-btn" href="<%= m.action%>">Learn more</a>
+					<h3><%= m.headline_title.html_safe%></h3>
+					<p><%= m.description.html_safe%></p>
+					<%= link_to "Learn more","#{m.action}", class:"cta-btn" %>
 				</div>
 			<% end %>
   		</div>
