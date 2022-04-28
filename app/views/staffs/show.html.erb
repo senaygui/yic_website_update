@@ -26,36 +26,47 @@
           <%# <% end %> 
             
           </div>
-        <div class="col-lg-4">
-            <div class="sidebar">
-              <div class="sidebar-item recent-posts">
-                    <h2 class="entry-title">
-                <div style= "color :#0975b8"><%= @staff.fullname.html_safe%></div>
-              </h2>
-			        <br>
-              <div class="entry-meta">
-                <ul>
-                  <i class="icofont-user"></i> <a href="#" class="ml-3"><%= @staff.office_name.upcase%></a>
-                  <li class="d-flex "><i class="icofont-wall-clock mr-3 mb-3"></i><%=@staff.major_responsibilities.html_safe%></li>
-                  <li class="d-flex "><i class="icofont-wall-clock mr-3 mb-3"></i><%=@staff.offices_that_answerable_to.html_safe%></li>
-                  <li class="d-flex "><i class="icofont-bullseye mr-3 mb-3"></i><%=@staff.office_address.html_safe%></li>
-                  <li class="d-flex "><i class="icofont-phone mr-3 mb-3"></i><%=@staff.office_phone_number.html_safe%></li> 
-                  <li class="d-flex "><i class="icofont-email mr-3 mb-3"></i><%=@staff.email.html_safe%></li>               
-                </ul>
+      
+
+          
+          <div class="col-lg-4">
+                    <section id="course-details" class="course-details">
+            <div class="container" data-aos="fade-up">
+
+            <div>
+
+              <div class="course-info d-flex justify-content-between align-items-center">
+                <h3><%= @staff.office_name.upcase%></h3>
               </div>
+              <div class="course-info d-flex justify-content-between align-items-center">
+                <h5>Offices That Answerable To</h5>
+                <%= @staff.offices_that_answerable_to.html_safe %>
+              </div>
+              <div class="course-info d-flex justify-content-between align-items-center">
+                <h5>Address</h5>
+                <%= @staff.office_address %>
+          
               </div>
 
-            </div>
+              <div class="course-info d-flex justify-content-between align-items-center">
+                <h5>Phone Number</h5>
+                <%= @staff.office_phone_number.html_safe %>
+              </div>
 
+              <div class="course-info d-flex justify-content-between align-items-center">
+                <h5>Email</h5>
+                <%= @staff.email %>
+              </div>
+            <div>
+          </div>
           </div>
           
-
-          
-
-
         </div>
 
-      </div>
+    
+    </section><!-- End Cource Details Section -->
+
+
     </section>
     </main>
 

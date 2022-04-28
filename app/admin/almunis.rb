@@ -1,7 +1,7 @@
 ActiveAdmin.register Almuni do
   config.batch_actions = true
 
-  permit_params :fullname,:sex,:phone_number,:modality,:study_level,:graduation_date,:program_name, :photo, documents: []
+  permit_params :fullname,:sex,:phone_number,:modality,:study_level,:student_id,:graduation_date,:program_name, :photo, documents: []
   active_admin_import
 
   scoped_collection_action :scoped_collection_update, form: -> do
@@ -15,6 +15,7 @@ ActiveAdmin.register Almuni do
     column :modality
     column :study_level
     column :program_name
+    column :student_id
     # column "Graduation Date", sortable: true do |c|
     #   c.graduation_date.strftime("%b %d, %Y")
     # end
@@ -43,6 +44,7 @@ ActiveAdmin.register Almuni do
       f.input :modality, as: :select, :collection => ["online", "regular", "extention", "distance"]
       f.input :study_level, as: :select, :collection => ["undergraduate", "graduate"]
       f.input :program_name
+      f.input :student_id
       f.input :sex, as: :select, :collection => ["Male", "Female"], :include_blank => false
       f.input :phone_number      
       f.input :graduation_date, as: :date_time_picker
@@ -104,6 +106,7 @@ ActiveAdmin.register Almuni do
         row :study_level
         row :program_name
         row :sex
+        row :student_id
         row :phone_number      
         row :graduation_date
         row :created_at

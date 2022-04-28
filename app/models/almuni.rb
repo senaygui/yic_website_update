@@ -11,6 +11,8 @@ class Almuni < ApplicationRecord
     has_one_attached :barcode
     has_one_attached :photo
 
+    has_many :requests
+
   
   def generate_qr
     GenerateQr.call(self)

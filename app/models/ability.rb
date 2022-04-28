@@ -20,9 +20,12 @@ class Ability
         can :manage, Accreditation
         can :manage, Admission
         can :manage, Almuni
+        can :manage, HowTo
         can :manage, CareerOpportunity
         can :manage, MarketingSection
         can :manage, News
+        can :manage, Request
+        can :manage, Step
         can :manage, SectionHeadline
         can :manage, Service
         can :manage, Staff

@@ -6,8 +6,34 @@
 				<li>Almunis Directory</li>
 			</ol>
 			<h2><%= @almuni.fullname%></h2>
+			</div>
+          </div>
 		</div>
 	</section>
+    <section id="recent-blog-posts" class="recent-blog-posts">
 
+      <div class="container aos-init aos-animate" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-lg-3" style="padding-right: 5px;">
+            <div class="post-box">
+              <div class="post-img"><%= link_to image_tag(@almuni.documents[0],size:"280x800", class: "img-fluid"), @almuni.documents[0] %></div>
+              
+              <h3 class="post-title"><%= @almuni.fullname%></h3>
+              <span class="post-date"><strong>Modality:- <%= @almuni.modality.html_safe%> </strong></span>
+              <span class="post-date"><strong>Study level:- <%= @almuni.study_level.html_safe%> </strong></span>
+              <span class="post-date"><strong>Program:- <%= @almuni.program_name.html_safe%> </strong></span>
+              <span class="post-date"><strong>Graduation Date:- <%= @almuni.graduation_date.strftime("%b %d, %Y")%> </strong></span>
+            <%= image_tag(@almuni.qr_code, size: "50x50") if @almuni.qr_code.attached? %>
+            
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+            
+  
 
 </main>

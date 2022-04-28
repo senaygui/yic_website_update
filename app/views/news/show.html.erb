@@ -29,7 +29,7 @@
               <div class="entry-meta">
                 <ul>
                   <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="blog-single.html"><%= @news.published_by%></a></li>
-                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01"><%= @news.created_at%></time></a></li>               
+                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <%= Date.parse(@news.created_at.to_s).strftime('%A')%>, <%= Date.parse(@news.created_at.to_s).to_formatted_s(:long)%></li>               
                 </ul>
               </div>
               <div class="entry-content">
@@ -41,18 +41,18 @@
           </div>
 
           <div class="col-lg-4">
-            <div class="sidebar">
-              <h3 class="sidebar-title">Recent Events</h3>
-              <div class="sidebar-item">
-              <%@last_five_news.each do |news|%>
-                <div class="post-item clearfix">
-                  <h4><%= link_to news.news_title,news_path(news.id)%></h4>
+          <section id="course-details" class="course-details">
+            <div class="container" data-aos="fade-up">
+              <div class="course-info d-flex justify-content-between align-items-center">
+                  <h3>Recent News</h3>
                 </div>
-              <%end%>
-              </div>
-
+              <%@last_five_news.each do |news|%>
+                <div class="course-info d-flex justify-content-between align-items-center">
+                  <h6><%= link_to news.news_title,news_path(news)%></h6>
+                </div>
+              <%end%>              
             </div>
-
+          </section>
           </div>
 
 

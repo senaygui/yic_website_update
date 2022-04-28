@@ -85,39 +85,39 @@
         <div class="tab-content">
           <div class="tab-pane active show" id="tab-1">
             <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0" data-aos="fade-up" data-aos-delay="100">
+              <div class="col-lg-12 order-2 order-lg-1 mt-3 mt-lg-0" data-aos="fade-up" data-aos-delay="100">
                 <%= @college.overview.html_safe%>
               </div>
-              <div class="col-lg-6 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
-                <img src="https://lms.heuc@edu.et/pluginfile.php/1/theme_moove/sliderimage1/1631710258/%28A%29---1500%20x%20700%20pixel%20for%20front%20page%20header%20image-01.png" alt="" class="img-fluid">
-              </div>
+              <%# <div class="col-lg-6 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
+                <%= image_tag "overview.jpeg", alt:"", class:"img-fluid" %>
+              <%# </div> %> 
             </div>
           </div>
           <div class="tab-pane" id="tab-2">
             <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+              <div class="col-lg-12 order-2 order-lg-1 mt-3 mt-lg-0">
                 <%= @college.history.html_safe%>
               </div>
-              <div class="col-lg-6 order-1 order-lg-2 text-center">
+              <%# <div class="col-lg-6 order-1 order-lg-2 text-center">
                 <img src="https://lms.heuc@edu.et/pluginfile.php/1/theme_moove/sliderimage1/1631710258/%28A%29---1500%20x%20700%20pixel%20for%20front%20page%20header%20image-01.png" alt="" class="img-fluid">
-              </div>
+              </div> %>
             </div>
           </div>
           <div class="tab-pane" id="tab-3">
             <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+              <div class="col-lg-12 order-2 order-lg-1 mt-3 mt-lg-0">
                 <%= @college.mission.html_safe%>
                 <br>
                 <%= @college.vision.html_safe%>
               </div>
-              <div class="col-lg-6 order-1 order-lg-2 text-center">
+              <%# <div class="col-lg-6 order-1 order-lg-2 text-center">
                 <img src="https://lms.heuc@edu.et/pluginfile.php/1/theme_moove/sliderimage1/1631710258/%28A%29---1500%20x%20700%20pixel%20for%20front%20page%20header%20image-01.png" alt="" class="img-fluid">
-              </div>
+              </div> %>
             </div>
           </div>
           <div class="tab-pane" id="tab-4">
             <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+              <div class="col-lg-12 order-2 order-lg-1 mt-3 mt-lg-0">
                 <%= @college.mandate.html_safe%>
             </div>
           </div>
@@ -161,25 +161,49 @@
     <div class="row">
       <div class="col-lg-3">
         <ul class="nav nav-tabs flex-column" id="portfolio-flters">
-            <% @service.each do |s|%>
-              <li class="nav-item filter-active" data-filter=".<%= s.id%>">
-                <a class="nav-link show"><%= s.service_name.html_safe%></a>
-              </li>
+            <% @service.each_with_index do |s,i|%>
+              <% if i == 0 %>
+                <li class="nav-item">
+                  <a class="nav-link active show" data-toggle="tab" href="#tab-<%= i %>"><%= s.service_name.html_safe%></a>
+                </li>
+              <% else %>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#tab-<%= i %>"><%= s.service_name.html_safe%></a>
+                </li>
+              <% end %>
             <%end%>          
         </ul>
       </div>
       <div class="col-lg-9 mt-4 mt-lg-0">
         <div class="tab-content portfolio-container">
-          <% @service.each do |s|%>
-            <div class="tab-pane active show portfolio-item <%= s.id%>">
-              <div class="row portfolio-wrap">
-                <div class="col-lg-8 details order-2 order-lg-1 portfolio-info">
-                    <h3><%= s.service_name.html_safe%></h3>
-                    <p class="font-italic"><%= s.service_overview.html_safe%></p>
-                    <p><%= s.details.html_safe%></p>                  
+          <% @service.each_with_index do |s,i|%>
+              <% if i == 0 %>
+                <div class="tab-pane active show" id="tab-<%= i %>">
+                  <div class="row portfolio-wrap">
+                    <div class="col-lg-8 details order-2 order-lg-1 portfolio-info">
+                      <h3><%= s.service_name.html_safe%></h3>
+                      <p class="font-italic"><%= s.service_overview.html_safe%></p>
+                      <p><%= s.details.html_safe%></p>
+                    </div>
+                    <div class="col-lg-4 text-center order-1 order-lg-2">
+                      <img src="assets/img/departments-1.jpg" alt="" class="img-fluid">
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
+              <% else %>
+                <div class="tab-pane" id="tab-<%= i %>">
+                  <div class="row portfolio-wrap">
+                    <div class="col-lg-8 details order-2 order-lg-1 portfolio-info">
+                      <h3><%= s.service_name.html_safe%></h3>
+                      <p class="font-italic"><%= s.service_overview.html_safe%></p>
+                      <p><%= s.details.html_safe%></p> 
+                    </div>
+                    <div class="col-lg-4 text-center order-1 order-lg-2">
+                      <img src="assets/img/departments-2.jpg" alt="" class="img-fluid">
+                    </div>
+                  </div>
+                </div>
+              <% end %>
           <%end%> 
         </div>
       </div>
@@ -431,10 +455,11 @@
     <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
       <div class="col-xl-10">
         <div class="owl-carousel testimonials-carousel">
-          <% @comment.where(display_on_home_page: true).each do |c|%>
+          <% @comment.where(category: "testimonial").where(display_on_home_page: true).each do |c|%>
           <div class="testimonial-wrap">
             <div class="testimonial-item">
-              <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+              <%= image_tag(c.photo, class: "testimonial-img") if c.photo.attached?%>
+              <%# <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt=""> %>
               <h3><%= c.fullname.html_safe%></h3>
               <h4>Ceo &amp; Founder</h4>
               <p>
@@ -507,7 +532,7 @@
             <div class="info-box mt-4">
               <i class="bx bx-envelope"></i>
               <h3>Email Us</h3>
-              <p>info@heuc@edu.et<br>contact@heuc@edu.et</p>
+              <p>info@yic@edu.et<br>contact@yic@edu.et</p>
             </div>
           </div>
           <div class="col-md-6">

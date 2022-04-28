@@ -61,7 +61,7 @@
                 <div class="course-info d-flex justify-content-between align-items-center">
                   <h3>Career Opportunities</h3>
                 </div>
-                <% @careerOpportunity.each do |career| %>
+                <% @careerOpportunity.where(program_id: @programs.id).each do |career| %>
                   <div class="course-info d-flex justify-content-between align-items-center">
                     <%= career.title.html_safe %>
                   </div>

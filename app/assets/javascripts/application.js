@@ -84,6 +84,23 @@ $(document).on('turbolinks:load', function(){
     var pathname = window.location.pathname;
     if (pathname == '/')
         $('.navbar-brand').css("color", "rgb(32, 42, 62)", "background-color", "#D3212D");
+    else if(pathname == '/staffs'){
+    
+      $('.nav-menu li').children().each((index,$ele)=>{
+        //  console.log(pathname.toString().toLowerCase().includes($ele.innerText.toString().toLowerCase()))
+           
+            $('.nav-menu li').removeClass('active');
+            if($ele.innerText.toString().toLowerCase().includes('office')){
+            
+              console.log("ever here") 
+              $ele.parentNode.classList.add('active');
+
+          
+              return false;
+          
+            // $ele.addClass('active');
+            }});
+    }
     else
           $('.nav-menu li').children().each((index,$ele)=>{
           //  console.log(pathname.toString().toLowerCase().includes($ele.innerText.toString().toLowerCase()))
@@ -91,7 +108,7 @@ $(document).on('turbolinks:load', function(){
 
               $('.nav-menu li').removeClass('active');
               if($ele.innerText.toString().toLowerCase().includes('admission')){
-                console.log("asdsd")
+              
 
                 $ele.parentNode.classList.add('active');
                 console.log($ele.parentNode.classList)

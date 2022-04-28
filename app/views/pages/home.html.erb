@@ -1,5 +1,5 @@
    <!-- ======= Hero Section ======= -->
-   <section id="hero" class="d-flex align-items-center">
+   <section id="hero" class="align-items-center">
 
    	<div class="container-fluid" data-aos="zoom-out" data-aos-delay="100">
    		<div class="row justify-content-center">
@@ -12,7 +12,7 @@
    						<h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h2>
    						<%= link_to 'Apply now',"https://sis.yic.edu.et/students/sign_up", class:"btn-get-started scrollto"%>
    					</div>
-   					<div class="col-12 col-xl-6 mt-3 mb-2">
+   					<div class="col-6 col-xl-6 mt-3 mb-2">
    						<div class="embed-responsive embed-responsive-16by9">
 						   <%=embed(@college.video_link)%>
    						</div>
@@ -80,7 +80,7 @@
 							<div class="post-img"><%= image_tag pro.photo, class:"img-fluid"%></div>
 							<h3 class="post-title"><%= pro.program_name.html_safe%></h3>
 							<span class="post-date"><strong>modality:-</strong><%=  pro.modality.html_safe%></span>
-							<p class="post-date mb-4" style="text-align: justify;"><%=truncate(pro.overview.html_safe, :length=>256)%></span>
+							<p class="post-date mb-4" style="text-align: justify;"><%=pro.overview.truncate(256).html_safe%></span>
 							<%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
 						</div>
    					</div>
@@ -107,7 +107,7 @@
 							<div class="post-img"><%= image_tag pro.photo, class:"img-fluid"%></div>
 							<h3 class="post-title"><%= pro.program_name.html_safe%></h3>
 							<span class="post-date"><strong>modality:-</strong><%=  pro.modality.html_safe%></span>
-							<span class="post-date mb-4" style="text-align: justify;"><%= truncate(pro.overview.html_safe, :length=>256)%></span>
+							<span class="post-date mb-4" style="text-align: justify;"><%= pro.overview.truncate(256).html_safe%></span>
 							<%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
 						</div>
    					</div>
@@ -137,7 +137,7 @@
 							<div class="post-img"><%= image_tag pro.photo, class:"img-fluid"%></div>
 							<h3 class="post-title"><%= pro.program_name.html_safe%></h3>
 							<span class="post-date"><strong>modality:-</strong><%=  pro.modality.html_safe%></span>
-							<p class="post-date mb-4" style="text-align: justify;"><%=truncate(pro.overview.html_safe, :length=>256)%></span>
+							<p class="post-date mb-4" style="text-align: justify;"><%=pro.overview.truncate(256).html_safe%></span>
 							<%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
 						</div>
    					</div>
@@ -211,7 +211,7 @@
 						<div class="post-img"><%= image_tag n.photo %></div>
 						<span class="post-date"><%= Date.parse(n.created_at.to_s).strftime('%A')%>, <%= Date.parse(n.created_at.to_s).to_formatted_s(:long)%></span>
 						<h3 class="post-title"><%= n.news_title.html_safe %></h3>
-						<p style="text-align: justify;"><%=truncate(n.overview.html_safe, :length=>256)%></p>
+						<p style="text-align: justify;"><%=n.overview.truncate(256).html_safe%></p>
 						<%=link_to news_path(n), class:"readmore stretched-link mt-auto" do%>
 							<span>Read More</span><i class="bi bi-arrow-right"></i>
 						<%end%></div>
@@ -248,7 +248,7 @@
 			<div class="row">
 				<div class="col-lg-12 ml-5">
 					<div id="commenMain ">
-					<% @comment.where(display_on_home_page: true).where(main_testimonial: true).each do |s|%>
+					<% @comment.where(category: "testimonial").where(display_on_home_page: true).where(main_testimonial: true).each do |s|%>
 						<div class="row ml-5">
 							<div class="col-lg-6">
 								<div class="container">
@@ -263,9 +263,9 @@
 							</div>
 							<div class="col-lg-5">
 								<div class="img">
-									<%= image_tag s.photo, class: "img-fluid"%>
+									<%= image_tag(s.photo, class: "img-fluid") if s.photo.attached?%>
 								</div>
-							</div>
+							</div> 
 							
 						</div>
 					
@@ -280,7 +280,7 @@
     		<div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
     			<div class="col-xl-10">
     				<div class="owl-carousel testimonials-carousel">
-						<% @comment.where(display_on_home_page: true).each do |c|%>
+						<% @comment.where(category: "testimonial").where(display_on_home_page: true).where(main_testimonial: false).each do |c|%>
 							<div class="testimonial-wrap">
 								<div class="testimonial-item">
 								<%= image_tag(c.photo, class: "testimonial-img") if c.photo.attached?%>
@@ -327,7 +327,7 @@
     						<div class="info-box mt-4">
     							<i class="bx bx-envelope"></i>
     							<h3>Email Us</h3>
-    							<p>info@heuc@edu.et<br>contact@heuc@edu.et</p>
+    							<p>info@yic@edu.et<br>contact@yic@edu.et</p>
     						</div>
     					</div>
     					<div class="col-md-6">
@@ -349,7 +349,7 @@
     							<div class="validate"></div>
     						</div>
     						<div class="col form-group">
-								<%= f.input :category, class: "form-control"%>
+								<%= f.input :category, collection: ["testimonial", "comment", "review"], class: "form-control"%>
     							<div class="validate"></div>
     						</div>
     					</div>

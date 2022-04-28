@@ -1,0 +1,609 @@
+<div
+  data-app="true"
+  class="v-application v-application--is-ltr theme--light"
+  id="app"
+>
+  <div class="v-application--wrap">
+    <div class="notifications vue-notifyjs"><span mode="in-out"></span></div>
+    <div>
+      <div>
+        <header
+          class="d-none navbar d-md-block v-sheet theme--light v-toolbar v-toolbar--flat v-app-bar v-app-bar--clipped v-app-bar--fixed"
+          data-booted="true"
+          style="
+            height: 64px;
+            margin-top: 0px;
+            transform: translateY(0px);
+            left: 0px;
+            right: 0px;
+            border-bottom: 1px solid rgb(230, 230, 230);
+            background-color: white;
+          "
+        >
+          <div class="v-toolbar__content" style="height: 64px">
+            <button
+              type="button"
+              class="text-capitalize v-btn v-btn--flat v-btn--text theme--light v-size--large primary--text"
+            >
+              <span class="v-btn__content"
+                ><div
+                  aria-label=" Logo"
+                  role="img"
+                  class="v-image v-responsive shrink mx-2 theme--light"
+                >
+                  <div
+                    class="v-responsive__sizer"
+                    style="padding-bottom: 50%"
+                  ></div>
+                  <div
+                    class="v-image__image v-image__image--contain"
+                    style="
+                      background-image: url('https://portal.yic.edu.et/img/logo2.7b3340bc.png');
+                      background-position: center center;
+                    "
+                  ></div>
+                  <div
+                    class="v-responsive__content"
+                    style="width: 236px"
+                  ></div></div
+              ></span></button
+            ><span
+              ><button
+                type="button"
+                class="text-capitalize v-btn v-btn--flat v-btn--text theme--light v-size--default"
+              >
+                <span class="v-btn__content">Home</span></button
+              ><!----></span
+            ><span
+              ><button
+                type="button"
+                class="text-capitalize v-btn v-btn--flat v-btn--text theme--light v-size--default"
+              >
+                <span class="v-btn__content">Accreditation</span></button
+              ><!----></span
+            ><span
+              ><button
+                type="button"
+                class="text-capitalize v-btn v-btn--flat v-btn--text theme--light v-size--default"
+              >
+                <span class="v-btn__content">Programs</span></button
+              ><!----></span
+            ><span
+              ><!---->
+              <div class="v-menu"></div>
+              <button
+                type="button"
+                class="text-capitalize v-btn v-btn--flat v-btn--text theme--light v-size--default"
+                role="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <span class="v-btn__content">
+                  How it works
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate mdi mdi-chevron-down theme--light"
+                  ></i
+                ></span></button></span
+            ><span><!----><!----></span
+            ><span
+              ><button
+                type="button"
+                class="text-capitalize v-btn v-btn--flat v-btn--text theme--light v-size--default"
+              >
+                <span class="v-btn__content">About</span></button
+              ><!----></span
+            ><span
+              ><button
+                type="button"
+                class="text-capitalize v-btn v-btn--flat v-btn--text theme--light v-size--default"
+              >
+                <span class="v-btn__content">Contact</span></button
+              ><!----></span
+            >
+            <div class="spacer"></div>
+            <button
+              type="button"
+              class="text-capitalize v-btn v-btn--contained theme--light v-size--default primary"
+            >
+              <span class="v-btn__content">
+                Apply Now
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-open-in-new theme--light"
+                  style="font-size: 16px"
+                ></i
+              ></span></button
+            ><button
+              type="button"
+              class="text-capitalize mx-3 v-btn v-btn--depressed v-btn--flat v-btn--outlined theme--light v-size--default primary--text"
+            >
+              <span class="v-btn__content">Sign in</span>
+            </button>
+          </div>
+        </header>
+        <header
+          class="d-block d-md-none v-sheet theme--light v-toolbar v-toolbar--flat v-app-bar v-app-bar--fixed"
+          data-booted="true"
+          style="
+            height: 64px;
+            margin-top: 0px;
+            transform: translateY(0px);
+            left: 0px;
+            right: 0px;
+            border-bottom: 1px solid rgb(230, 230, 230);
+            background-color: white;
+          "
+        >
+          <div class="v-toolbar__content" style="height: 64px">
+            <button
+              type="button"
+              class="v-app-bar__nav-icon v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default primary--text"
+              color="primary"
+            >
+              <span class="v-btn__content"
+                ><i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-menu theme--light"
+                ></i
+              ></span></button
+            ><button
+              type="button"
+              class="text-lowercase v-btn v-btn--flat v-btn--text theme--light v-size--default primary--text"
+            >
+              <span class="v-btn__content"
+                ><img
+                  src="/img/logo.f7c6344d.png"
+                  alt="alt"
+                  height="40px"
+                  width="50px"
+              /></span>
+            </button>
+            <div class="spacer"></div>
+            <button
+              type="button"
+              class="text-capitalize pr-2 v-btn v-btn--contained theme--light v-size--default primary"
+            >
+              <span class="v-btn__content">
+                Sign in
+                <i
+                  aria-hidden="true"
+                  class="v-icon notranslate mdi mdi-open-in-new theme--light"
+                  style="font-size: 16px"
+                ></i
+              ></span>
+            </button>
+          </div>
+        </header>
+        <nav
+          class="v-navigation-drawer v-navigation-drawer--close v-navigation-drawer--fixed v-navigation-drawer--temporary theme--light"
+          data-booted="true"
+          style="
+            height: 100vh;
+            top: 0px;
+            transform: translateX(-100%);
+            width: 256px;
+          "
+        >
+          <div class="v-navigation-drawer__content">
+            <header
+              class="v-sheet theme--light v-toolbar v-toolbar--dense v-toolbar--flat primary"
+              style="height: 48px"
+            >
+              <div class="v-toolbar__content" style="height: 48px">
+                <button
+                  type="button"
+                  class="text-capitalize v-btn v-btn--flat v-btn--text theme--light v-size--default white--text"
+                >
+                  <span class="v-btn__content"
+                    ><img
+                      src="/img/logo.f7c6344d.png"
+                      alt="alt"
+                      height="40px"
+                      width="40px"
+                    />
+                    <div class="v-toolbar__title mx-2">Yardstick</div></span
+                  >
+                </button>
+                <div class="spacer"></div>
+                <button
+                  type="button"
+                  class="v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default white--text"
+                >
+                  <span class="v-btn__content"
+                    ><i
+                      aria-hidden="true"
+                      class="v-icon notranslate mdi mdi-close theme--light"
+                    ></i
+                  ></span>
+                </button>
+              </div>
+            </header>
+            <div>
+              <div
+                class="v-list v-sheet v-sheet--shaped theme--light rounded-0 v-list--dense"
+              >
+                <div
+                  tabindex="0"
+                  class="v-list-item v-list-item--link theme--light primary--text"
+                >
+                  <div class="v-list-item__content">
+                    <div class="v-list-item__title">Home</div>
+                  </div>
+                </div>
+                <div
+                  tabindex="0"
+                  class="v-list-item v-list-item--link theme--light primary--text"
+                >
+                  <div class="v-list-item__content">
+                    <div class="v-list-item__title">Accreditation</div>
+                  </div>
+                </div>
+                <div
+                  tabindex="0"
+                  class="v-list-item v-list-item--link theme--light primary--text"
+                >
+                  <div class="v-list-item__content">
+                    <div class="v-list-item__title">Programs</div>
+                  </div>
+                </div>
+                <div
+                  tabindex="0"
+                  class="v-list-item v-list-item--link theme--light primary--text"
+                >
+                  <div class="v-list-item__content">
+                    <div class="v-list-item__title">How it works</div>
+                  </div>
+                </div>
+                <div
+                  tabindex="0"
+                  class="v-list-item v-list-item--link theme--light primary--text"
+                >
+                  <div class="v-list-item__content">
+                    <div class="v-list-item__title">How to Learn</div>
+                  </div>
+                </div>
+                <div
+                  tabindex="0"
+                  class="v-list-item v-list-item--link theme--light primary--text"
+                >
+                  <div class="v-list-item__content">
+                    <div class="v-list-item__title">About</div>
+                  </div>
+                </div>
+                <div
+                  tabindex="0"
+                  class="v-list-item v-list-item--link theme--light primary--text"
+                >
+                  <div class="v-list-item__content">
+                    <div class="v-list-item__title">Contact</div>
+                  </div>
+                </div>
+                <div
+                  tabindex="0"
+                  class="v-list-item v-list-item--link theme--light primary--text"
+                >
+                  <div class="v-list-item__content">
+                    <div class="v-list-item__title">Sign in</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="v-navigation-drawer__border"></div>
+        </nav>
+      </div>
+      <main class="v-main" data-booted="true" style="padding: 64px 0px 0px">
+        <div class="v-main__wrap">
+          <div>
+            <div class="v-card v-card--flat v-sheet theme--light rounded-0">
+              <div class="v-card__text">
+                <div class="layout row wrap justify-center">
+                  <div class="flex xs12 sm12 md5 lg5 pa-2">
+                    <div
+                      class="v-card v-card--flat v-sheet theme--light"
+                      title=""
+                      style="height: 100%"
+                    >
+                      <div class="container container--fluid">
+                        <div class="row">
+                          <div class="col col-12">
+                            <div class="row align-center justify-start">
+                              <h1 class="how-to-title text pt-md-5 my-3">
+                                Start your Application to YIC Online
+                              </h1>
+                              <p class="body-1 para py-2 text-justify">
+                           <%= @how_tos.description.html_safe%>
+                              </p>
+                              <div class="text-start">
+                                <button
+                                  type="button"
+                                  class="text-capitalize v-btn v-btn--contained v-btn--tile theme--light v-size--large primary darken-1"
+                                  href="https://sis.yic.edu.et/students/sign_up"
+                                >
+                                  <a href="https://sis.yic.edu.et/students/sign_up"><span class="v-btn__content">Apply Now</span></a>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex xs12 sm12 md5 lg5 pa-2">
+                    <div style="height: 20px"></div>
+                    <div class="row align-end justify-center">
+                      <div
+                        class="ma-2 v-card v-card--flat v-sheet theme--light rounded-0"
+                        style="height: 100%; width: 100%"
+                      >
+                        <div class="video-container ml-md-11">
+                          <iframe
+                            width="600"
+                            height="483"
+                            src="https://www.youtube.com/embed/s6TXDFp1EcM"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen="allowfullscreen"
+                          ></iframe>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+    <% @steps.each_with_index do |step,i|%>
+              <%  if i != @steps.size - 1 %>
+                <div class="layout row wrap py-5 my-5 justify-center">
+                  <div class="flex xs12 sm12 md4 lg4 pa-2">
+                    <p class="title">STEP <%= i+1 %></p>
+                    <h1 class="card-title py-2"><%= step.step_name %></h1>
+                    <p class="body-1 py-2">
+                      <%= step.step_description.html_safe %>
+                    </p>
+                    <!---->
+                  </div>
+                  <div class="flex xs12 sm12 md2 lg2"></div>
+                  <div class="flex xs12 sm12 md4 lg4 pa-2">
+                    <div class="row align-center justify-center">
+                      <div
+                        class="v-image v-responsive grey lighten-2 theme--light"
+                        style="max-height: 100%; max-width: 100%"
+                      >
+                        <div
+                          class="v-responsive__sizer"
+                          style="padding-bottom: 74.4939%"
+                        ></div>
+                        <div
+                          class="v-image__image v-image__image--cover"
+                          style="background-image: url('<%= rails_blob_url step.image if step.image.attached? %>')"
+                        ></div>
+                        
+                        <!---->
+                        <div
+                          class="v-responsive__content"
+                          style="width: 741px"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% else %>
+
+                <div class="layout row wrap py-5 my-5 justify-center">
+                  <div class="flex xs12 sm12 md4 lg4 pa-2">
+                    <p class="title">STEP <%= i+1 %></p>
+                    
+                    <h1 class="card-title py-2"><%= step.step_name %></h1>
+                    <p class="body-1 py-2">
+                      <%= step.step_description.html_safe %>
+                    </p>
+                    <% if @how_tos.title == "how_to_learn"%>
+                      <div class="text-left my-2">
+                        <%= link_to "Apply now","https://sis.yic.edu.et/students/sign_up", class: "btn btn-primary"%>
+                      </div>
+                    <% else %>
+                      <div class="text-left my-2">
+                        <%= link_to '<button
+                          type="button"
+                          class="text-capitalize v-btn v-btn--contained v-btn--tile theme--light v-size--default primary"
+                        >	
+                          <span class="v-btn__content"> How to Learn</span>
+                        </button>'.html_safe, how_to_path("how_to_learn") %>
+                      </div>
+                    <% end %>
+                  </div>
+                  <div class="flex xs12 sm12 md2 lg2"></div>
+                  <div class="flex xs12 sm12 md4 lg4 pa-2">
+                    <div class="row align-center justify-center">
+                      <div
+                        class="v-image v-responsive grey lighten-2 theme--light"
+                        style="max-height: 100%; max-width: 100%"
+                      >
+                        <div
+                          class="v-responsive__sizer"
+                          style="padding-bottom: 67.9144%"
+                        ></div>
+                        <div
+                          class="v-image__image v-image__image--cover"
+                          style="background-image: url('<%= rails_blob_url step.image if step.image.attached? %>')"
+                        ></div>
+                        <!---->
+                        <div
+                          class="v-responsive__content"
+                          style="width: 374px"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+    <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <div style="height: 150px"></div>
+      <div>
+        <div
+          class="mobile-footer v-card v-card--flat v-sheet theme--dark rounded-0"
+        >
+          <div class="v-card__text">
+            <div class="layout row wrap justify-center">
+              <div class="flex xs12 sm12 m4 lg4 pa-2">
+                <img src="/img/logo2.7b3340bc.png" alt="" />
+                <p class="pb-3 px-3" style="width: 300px">
+                  Congratulations! At YIC You can now learn your post graduate
+                  degree from the comfort of your home.
+                </p>
+              </div>
+              <div class="flex xs12 sm12 md3 lg3 pa-2">
+                <h2 class="white--text display-1 my-3">Contact us</h2>
+                <p>
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate mr-1 mdi mdi-map theme--dark"
+                  ></i
+                  >Addis Ababa, Ethiopia
+                </p>
+                <p>
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate mr-1 mdi mdi-email theme--dark"
+                  ></i
+                  >info@yic.edu.et
+                </p>
+                <p>
+                  <i
+                    aria-hidden="true"
+                    class="v-icon notranslate mr-1 mdi mdi-phone theme--dark"
+                  ></i>
+                  0906505050
+                </p>
+              </div>
+              <div class="flex xs12 sm12 md2 lg2 pa-2">
+                <h2 class="display-1 white--text my-2">Quick Links</h2>
+                <span
+                  ><button
+                    type="button"
+                    class="text-capitalize body-1 v-btn v-btn--flat v-btn--text theme--dark v-size--small"
+                  >
+                    <span class="v-btn__content"> Home </span></button
+                  ><br /></span
+                ><span
+                  ><button
+                    type="button"
+                    class="text-capitalize body-1 v-btn v-btn--flat v-btn--text theme--dark v-size--small"
+                  >
+                    <span class="v-btn__content"> Accreditation </span></button
+                  ><br /></span
+                ><span
+                  ><button
+                    type="button"
+                    class="text-capitalize body-1 v-btn v-btn--flat v-btn--text theme--dark v-size--small"
+                  >
+                    <span class="v-btn__content"> How it works? </span></button
+                  ><br /></span
+                ><span
+                  ><button
+                    type="button"
+                    class="text-capitalize body-1 v-btn v-btn--flat v-btn--text theme--dark v-size--small"
+                  >
+                    <span class="v-btn__content"> Program </span></button
+                  ><br /></span
+                ><span
+                  ><button
+                    type="button"
+                    class="text-capitalize body-1 v-btn v-btn--flat v-btn--text theme--dark v-size--small"
+                  >
+                    <span class="v-btn__content"> About </span></button
+                  ><br
+                /></span>
+              </div>
+              <div class="flex xs12 sm12 md2 lg2 pa-2">
+                <h1 class="display-1 white--text my-2">Program</h1>
+                <span
+                  ><button
+                    type="button"
+                    class="text-capitalize v-btn v-btn--flat v-btn--text theme--dark v-size--default"
+                  >
+                    <span class="v-btn__content"> MBA </span></button
+                  ><br /></span
+                ><span
+                  ><button
+                    type="button"
+                    class="text-capitalize v-btn v-btn--flat v-btn--text theme--dark v-size--default"
+                  >
+                    <span class="v-btn__content"> Leadership </span></button
+                  ><br /></span
+                ><span
+                  ><button
+                    type="button"
+                    class="text-capitalize v-btn v-btn--flat v-btn--text theme--dark v-size--default"
+                  >
+                    <span class="v-btn__content">
+                      Project Managemet
+                    </span></button
+                  ><br /></span
+                ><span
+                  ><button
+                    type="button"
+                    class="text-capitalize v-btn v-btn--flat v-btn--text theme--dark v-size--default"
+                  >
+                    <span class="v-btn__content">
+                      Accounting and Finance
+                    </span></button
+                  ><br
+                /></span>
+              </div>
+            </div>
+          </div>
+          <hr
+            role="separator"
+            aria-orientation="horizontal"
+            class="v-divider theme--dark"
+          />
+          <div class="v-card__actions">
+            <div class="spacer"></div>
+            <p class="text-center">
+              © 2020- Yardstick International College. All rights reserved!
+            </p>
+            <div class="spacer"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    role="menu"
+    class="v-menu__content theme--light v-menu__content--fixed"
+    style="
+      min-width: 156px;
+      top: 50px;
+      left: 621px;
+      transform-origin: left top;
+      z-index: 1000002;
+      display: none;
+    "
+  >
+    <div class="v-list v-sheet theme--light v-list--dense v-list--nav">
+      <div
+        tabindex="0"
+        role="menuitem"
+        id="list-item-244"
+        class="v-list-item v-list-item--link theme--light"
+      >
+        How to Apply Online
+      </div>
+      <div
+        tabindex="0"
+        role="menuitem"
+        id="list-item-245"
+        class="v-list-item v-list-item--link theme--light"
+      >
+        How to use the Learning Platform
+      </div>
+    </div>
+  </div>
+</div>
