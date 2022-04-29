@@ -2,7 +2,7 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.16.0"
 
-set :application, "yic_website_update"
+set :application, "yic_website"
 set :repo_url, "https://github.com/senaygui/yic_website_update.git"
 # set :ssh_options, { :forward_agent => true, :port => 4321 }
 set :user, "deploy"
