@@ -5,7 +5,6 @@ require 'rails/all'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-## application.rb:
 
 module YicWebsite
   class Application < Rails::Application
@@ -16,8 +15,6 @@ module YicWebsite
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
     config.assets.precompile << /\.(?:svg|eot|woff|ttf|eot|woff2)$/
 
-
-    config.middleware.use Rack::GoogleAnalytics, :tracker => 'UA-216145583-1'
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
