@@ -35,7 +35,7 @@ ActiveAdmin.register Program do
     f.semantic_errors
     f.inputs "porgram information" do
       f.input :program_name
-      f.input :overview,  :as => :ckeditor
+      f.input :overview
       f.input :program_description,  :as => :ckeditor
       f.input :study_level, as: :select, :collection => ["undergraduate", "graduate", "TVET"], :include_blank => false
       f.input :modality, as: :select, :collection => ["online", "regular", "extention", "distance"], :include_blank => false

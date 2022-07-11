@@ -78,8 +78,8 @@
 				    <div class="col-lg-3 mt-3" style="padding-right: 5px;">
 						<div class="post-box">
 							<div class="post-img"><%= image_tag pro.photo, class:"img-fluid"%></div>
-							<h3 class="post-title"><%= pro.program_name.html_safe%></h3>
-							<span class="post-date"><strong>modality:-</strong><%=  pro.modality.html_safe%></span>
+							<h3 class="post-title"><%= pro.program_name%></h3>
+							<span class="post-date"><strong>modality:-</strong><%=  pro.modality%></span>
 							<p class="post-date mb-4" style="text-align: justify;"><%=pro.overview.truncate(256).html_safe%></span>
 							<%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
 						</div>
@@ -105,9 +105,9 @@
 					<div class="col-lg-3 mt-3" style="padding-right: 5px;">
 						<div class="post-box">
 							<div class="post-img"><%= image_tag pro.photo, class:"img-fluid"%></div>
-							<h3 class="post-title"><%= pro.program_name.html_safe%></h3>
-							<span class="post-date"><strong>modality:-</strong><%=  pro.modality.html_safe%></span>
-							<span class="post-date mb-4" style="text-align: justify;"><%= pro.overview.truncate(256).html_safe%></span>
+							<h3 class="post-title"><%= pro.program_name%></h3>
+							<span class="post-date"><strong>modality:-</strong><%=  pro.modality%></span>
+							<span class="post-date mb-4" style="text-align: justify;"><%= pro.overview.truncate(256)%></span>
 							<%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
 						</div>
    					</div>
@@ -135,9 +135,9 @@
 				    <div class="col-lg-3 mt-3" style="padding-right: 5px;">
 						<div class="post-box">
 							<div class="post-img"><%= image_tag pro.photo, class:"img-fluid"%></div>
-							<h3 class="post-title"><%= pro.program_name.html_safe%></h3>
-							<span class="post-date"><strong>modality:-</strong><%=  pro.modality.html_safe%></span>
-							<p class="post-date mb-4" style="text-align: justify;"><%=pro.overview.truncate(256).html_safe%></span>
+							<h3 class="post-title"><%= pro.program_name%></h3>
+							<span class="post-date"><strong>modality:-</strong><%=  pro.modality%></span>
+							<p class="post-date mb-4" style="text-align: justify;"><%=pro.overview.truncate(256)%></span>
 							<%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
 						</div>
    					</div>
@@ -211,7 +211,7 @@
 						<div class="post-img"><%= image_tag n.photo %></div>
 						<span class="post-date"><%= Date.parse(n.created_at.to_s).strftime('%A')%>, <%= Date.parse(n.created_at.to_s).to_formatted_s(:long)%></span>
 						<h3 class="post-title"><%= n.news_title.html_safe %></h3>
-						<p style="text-align: justify;"><%=n.overview.truncate(256).html_safe%></p>
+						<p style="text-align: justify;"><%=n.overview.truncate(256)%></p>
 						<%=link_to news_path(n), class:"readmore stretched-link mt-auto" do%>
 							<span>Read More</span><i class="bi bi-arrow-right"></i>
 						<%end%></div>
@@ -227,8 +227,8 @@
     	<div class="container aos-init aos-animate " data-aos="zoom-in">
 			<% @marketing.where(page_to_display: 'home').each do |m|%>
 				<div class="text-center">
-					<h3><%= m.headline_title.html_safe%></h3>
-					<p><%= m.description.html_safe%></p>	
+					<h3><%= m.headline_title%></h3>
+					<p><%= m.description%></p>	
 					<%link_to "#{m.action}", class:"cta-btn" do %>Learn more<%end%>
 				</div>
 			<% end %>
@@ -240,7 +240,7 @@
     	<div class="container" data-aos="fade-up">
     		<div class="section-title">
     			<h2>Testimonials</h2>
-    			<p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p>
+    			<p>What Our Students Are Saying About Us?</p>
     		</div>
     	</div>
 
@@ -307,7 +307,7 @@
 
     		<div class="section-title">
     			<h2>Contact</h2>
-    			<p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p>
+    			<p>We are here to answer any question you may have.</p>
     		</div>
 			<div class="text-center"><%= link_to "Check Our Branches", "/contact",class: "btn btn-primary mb-4"%></div>
 
@@ -320,21 +320,21 @@
     						<div class="info-box">
     							<i class="bx bx-map"></i>
     							<h3>Our Address</h3>
-    							<p>Ethiopia Addis Ababa, Asmara Road</p>
+    							<p><%= @college.headquarter_address%></p>
     						</div>
     					</div>
     					<div class="col-md-6">
     						<div class="info-box mt-4">
     							<i class="bx bx-envelope"></i>
     							<h3>Email Us</h3>
-    							<p>info@yic@edu.et<br>contact@yic@edu.et</p>
+    							<p><%= @college.email%><br>contact@yic@edu.et</p>
     						</div>
     					</div>
     					<div class="col-md-6">
     						<div class="info-box mt-4">
     							<i class="bx bx-phone-call"></i>
     							<h3>Call Us</h3>
-    							<p>+251-11-6-460954<br>+251-11-6-478965</p>
+    							<p><%= @college.phone_number%><br><%= @college.alternative_phone_number%></p>
     						</div>
     					</div>
     				</div>
@@ -366,7 +366,7 @@
     						<div class="error-message"></div>
     						<div class="sent-message">Your message has been sent. Thank you!</div>
     					</div>
-						<%= f.submit 'Send Message', class: 'btn btn-primary'%>
+						<%= f.submit 'Send Message', class: 'btn btn-primary text-white'%>
     					<% end %>
     			</div>
     		</div>

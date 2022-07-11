@@ -11,30 +11,30 @@
           <p>
             Asmara Street <br>
             Addis Ababa, Ethiopia<br><br>
-            <strong>Phone:</strong> +251-906505050<br>
-            <strong>Email:</strong> info@heuc@edu.et<br>
+            <strong>Phone:</strong> <%= College.last.alternative_phone_number%><br>
+            <strong>Email:</strong> <%= College.last.email%><br>
           </p>
         </div>
 
         <div class="col-lg-2 col-md-6 footer-links">
           <h4>Useful Links</h4>
           <ul>
-            <li><%= link_to "#" do %>
+            <li><%= link_to root_path do %>
             <i class="bx bx-chevron-right"></i><span>Home</span>
             <% end%></li>
-            <li><%= link_to "about" do %>
+            <li><%= link_to about_path do %>
             <i class="bx bx-chevron-right"></i><span>About us</span>
             <% end%></li>
-            <li><%= link_to "#" do %>
+            <li><%= link_to about_path do %>
             <i class="bx bx-chevron-right"></i><span>Services</span>
             <% end%></li>
-            <li><%= link_to "accreditation" do %>
+            <li><%= link_to accreditation_path do %>
             <i class="bx bx-chevron-right"></i><span>Accreditation</span>
             <% end%></li>
-            <li><%= link_to "#" do %>
+            <li><%= link_to staffs_path do %>
             <i class="bx bx-chevron-right"></i><span>Office</span>
             <% end%></li>
-            <li><%= link_to "programs" do %>
+            <li><%= link_to programs_path do %>
             <i class="bx bx-chevron-right"></i><span>Programs</span>
             <% end%></li>
           </ul>
@@ -52,25 +52,20 @@
 
         <div class="col-lg-3 col-md-12 footer-links">
           <h4>Our Social Networks</h4>
-          <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
+          <p>Get updates from our social medias</p>
           <div class="social-links mt-3">
-            <%= link_to "#{College.last.twitter_handle}", class:"twitter" do %>
+            <%= link_to "#{College.last.twitter_handle}", class: "twitter" do %>
             <i class="bx bxl-twitter"></i>
             <% end%>
-            <%= link_to "#{College.last.facebook_handle}", class:"facebook" do %>
+            <%= link_to "#{College.last.facebook_handle}", class: "facebook" do %>
             <i class="bx bxl-facebook"></i>
             <% end%>
-            <%= link_to "#{College.last.instagram_handle}", class:"instagram" do %>
+            <%= link_to "#{College.last.instagram_handle}", class: "instagram" do %>
             <i class="bx bxl-instagram"></i>
             <% end%>
-            <%= link_to "#", class:"skype" do %>
-            <i class="bx bxl-skype"></i>
-            <% end%>
-            <%= link_to "#{College.last.linkedin_handle}", class:"linkedin" do %>
+            <%= link_to "#{College.last.linkedin_handle}", class: "linkedin" do %>
             <i class="bx bxl-linkedin"></i>
             <% end%>
-
-
           </div>
         </div>
 
@@ -90,22 +85,18 @@
      </div>
    </div>
    <div class="social-links text-center text-md-right pt-3 pt-md-0">
-   <%= link_to "#", class:"twitter" do%>
-   <i class="bx bxl-twitter"></i>
-   <%end%>
-   <%= link_to "#", class:"facebook" do%>
-   <i class="bx bxl-facebook"></i>
-   <%end%>
-   <%= link_to "#", class:"instagram" do%>
-   <i class="bx bxl-instagram"></i>
-   <%end%>
-   <%= link_to "#", class:"skype" do%>
-   <i class="bx bxl-skype"></i>
-   <%end%>
-   <%= link_to "#", class:"linkedin" do%>
-   <i class="bx bxl-linkedin"></i>
-   <%end%>
-
+     <%= link_to "#{College.last.twitter_handle}", class:"twitter" do%>
+      <i class="bx bxl-twitter"></i>
+     <%end%>
+     <%= link_to "#{College.last.facebook_handle}", class:"facebook" do%>
+      <i class="bx bxl-facebook"></i>
+     <%end%>
+     <%= link_to "#{College.last.instagram_handle}", class:"instagram" do%>
+      <i class="bx bxl-instagram"></i>
+     <%end%>
+     <%= link_to "#{College.last.linkedin_handle}", class:"linkedin" do%>
+      <i class="bx bxl-linkedin"></i>
+     <%end%>
   </div>
 
 </footer><!-- End Footer -->

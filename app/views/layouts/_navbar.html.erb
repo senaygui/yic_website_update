@@ -9,40 +9,39 @@
               <%=image_tag "logo2.png"%>
             <%end%>
        </h1>
-         <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <%= link_to <%=image_tag "assets/img/logo.png" alt=""%>, "index.html", class="logo mr-auto"%>-->
-
         <nav class="nav-menu d-none d-lg-block mr-lg-5">
           <ul>
             <li class="active"><%= link_to "Home", root_path%></li>
-            <!-- <li><%= link_to "Admission", "#about"%></li> -->
+            
+            <li class="drop-down"><%= link_to "About Us", "#"%>
+              <ul>
+                <li><%= link_to "About", about_path%> </li>
+                <li><%= link_to "Accreditation", accreditation_path%></li>
+                <li><%= link_to "Office", staffs_path%></li>
+              </ul>
+            </li>
             <li class="drop-down"><%= link_to "Admission", "#"%>
               <ul>
                 <% Admission.all.each do |admission|%>
                   <li><%= link_to("#{admission.admission_name}", {controller: "admissions", action: "show", id: admission} )%></li>
-                  <!-- <li><%= link_to "Regular Masters", "regular_masters.html"%></li>
-                  <li><%= link_to "Online Masters","#"%></li>
-                  <li><%= link_to "Extension Degree", "#" %></li>
-                  <li><%= link_to "Distance Degree", "#"%></li>
-                  <li><%= link_to "TBVT", "#"%></li> -->
                 <%end%>
               </ul>
             </li>
             <li><%= link_to "News&Event", news_index_path%></li>
-            <li><%= link_to "Accreditation", accreditation_path%></li>
-            <li><%= link_to "About", about_path%> </li>
-            <li><%= link_to "Office", staffs_path%></li>
-            <li><%= link_to "Programs", programs_path%></li>
-            <!-- <li class="drop-down"><a href="">Offices</a>
-              <ul>
-                <li><a href="">office 1 </a></li>
-                <li><a href="">office 2</a></li>
-              </ul>
-            </li> -->
-            <li><%= link_to "Almunis", almunis_path%></li>
-              
-              <li><%= link_to "Contact us", contact_path%></li>
             
+            <li><%= link_to "Programs", programs_path%></li>
+            <li><%= link_to "Almunis", almunis_path%></li>
+            <li><a href="https://lms.yic.edu.et/">E-learning</a></li>
+            <li class="drop-down"><%= link_to "Libraries", "#"%>
+              <ul>
+                <li><a href="https://lms.yic.edu.et/library">Digital Library</a></li>
+                <li><a href="https://connect.liblynx.com/wayf/7d93f98bc6a0e76fbaa79035e3a98ebd">Jounral</a></li>
+                <li><a href="http://library.techin.et/">National Digital Library of Ethiopia (NDLE)</a></li>
+                <li><a href="http://ndl.ethernet.edu.et/">National Academic Digital Library of Ethiopia (NADLE)</a></li>
+                <li><a href="https://repository.yic.edu.et/">Research and Publication Repositories</a></li>
+              </ul>
+            </li>
+            <li><%= link_to "Contact us", contact_path%></li>
           </ul>
         </nav><!-- .nav-menu -->
 
