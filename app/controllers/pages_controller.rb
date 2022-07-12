@@ -9,6 +9,8 @@ class PagesController < ApplicationController
   end
 
   def contact
+    @marketing = MarketingSection.all
+    @college = College.last
     @branches=Branch.all
     @faq= FrequentlyAskedQuestion.all
   end
